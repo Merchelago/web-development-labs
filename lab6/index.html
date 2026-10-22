@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Карточки туристических мест: Амальфи, Интерлакен, Киото, мыс Рока и другие направления.">
+    <meta name="author" content="Ананьев Александр Николаевич">
+    <title>ТурГид — карточки туристических мест</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="logo" href="#top" id="top">Тур<span class="logo__accent">Гид</span></a>
+            <nav class="nav" aria-label="Основная навигация">
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="#featured" aria-current="page">Место недели</a></li>
+                    <li><a class="nav__link" href="#places">Направления</a></li>
+                    <li><a class="nav__link" href="#subscribe">Подписка</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p class="hero__eyebrow">Путеводитель по красивым местам</p>
+                <h1 class="hero__title">Куда поехать в&nbsp;следующий раз?</h1>
+                <p class="hero__text">
+                    Собрали места, которые выглядят на фотографиях так же хорошо, как и вживую.
+                    Наведите курсор на карточку — откроются подробности о поездке.
+                </p>
+            </div>
+        </section>
+
+        <section class="featured container" id="featured">
+            <h2 class="section-title">Место недели</h2>
+            <div class="featured__grid">
+                <article class="card card--large">
+                    <div class="card__media">
+                        <img class="card__img" src="images/amalfi.jpg" width="1000" height="690"
+                             alt="Городок на побережье Амальфи: белые дома на скалах и бухта с лодками">
+                        <span class="card__location">Италия</span>
+                        <div class="card__overlay">
+                            <p class="card__overlay-title">Амальфи</p>
+                            <p class="card__overlay-subtitle">Жемчужина Средиземноморья</p>
+                            <p class="card__overlay-text">Откройте для себя атмосферу итальянского побережья</p>
+                            <ul class="card__facts">
+                                <li>Сезон: май — сентябрь</li>
+                                <li>Перелёт до Неаполя: от 4 ч</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">Амальфи</h3>
+                        <p class="card__subtitle">Жемчужина Средиземноморья</p>
+                        <p class="card__text">
+                            Живописный город на побережье Италии с узкими улочками, старинной
+                            архитектурой и потрясающими видами на море.
+                        </p>
+                        <div class="card__meta">
+                            <p class="rating"><span class="rating__value">4.8</span> <span class="rating__count">(1 240 отзывов)</span></p>
+                            <label class="fav">
+                                <input class="fav__input" type="checkbox" aria-label="Добавить Амальфи в избранное">
+                                <span class="fav__icon" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                        <a class="btn card__btn" href="https://ru.wikipedia.org/wiki/Амальфи" target="_blank" rel="noopener">Подробнее</a>
+                    </div>
+                </article>
+
+                <aside class="featured__aside" aria-labelledby="why-title">
+                    <p class="season-badge">Сейчас сезон</p>
+                    <h3 class="featured__aside-title" id="why-title">Почему стоит поехать</h3>
+                    <ul class="checklist">
+                        <li>Дорога вдоль обрыва — одна из самых красивых в Европе</li>
+                        <li>Кафедральный собор IX века и лестница из 62 ступеней</li>
+                        <li>Лимонные сады и знаменитый лимончелло</li>
+                        <li>Лодочные прогулки к гротам и соседнему Позитано</li>
+                    </ul>
+                    <dl class="facts">
+                        <div class="facts__row">
+                            <dt>Лучшее время</dt>
+                            <dd>май — сентябрь</dd>
+                        </div>
+                        <div class="facts__row">
+                            <dt>Бюджет в день</dt>
+                            <dd>от 120 €</dd>
+                        </div>
+                        <div class="facts__row">
+                            <dt>Язык</dt>
+                            <dd>итальянский</dd>
+                        </div>
+                    </dl>
+                    <h3 class="featured__aside-title">План на 3 дня</h3>
+                    <ol class="route">
+                        <li><strong>Амальфи и Атрани</strong> — собор Святого Андрея, музей бумаги</li>
+                        <li><strong>Равелло</strong> — сады виллы Чимброне и «Терраса бесконечности»</li>
+                        <li><strong>Позитано</strong> — паром вдоль побережья и вечер на пляже</li>
+                    </ol>
+                </aside>
+            </div>
+        </section>
+
+        <section class="places container" id="places">
+            <h2 class="section-title">Ещё направления</h2>
+            <div class="cards">
+                <article class="card card--compact">
+                    <div class="card__media">
+                        <img class="card__img" src="images/interlaken.jpg" width="1000" height="563"
+                             alt="Река Аре с бирюзовой водой и горы у Интерлакена">
+                        <span class="card__location">Швейцария</span>
+                        <div class="card__overlay">
+                            <p class="card__overlay-text">Город между двумя озёрами у подножия Юнгфрау</p>
+                            <ul class="card__facts">
+                                <li>Сезон: июнь — сентябрь</li>
+                                <li>Параглайдинг и треккинг</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title"><a class="card__link" href="https://ru.wikipedia.org/wiki/Интерлакен" target="_blank" rel="noopener">Интерлакен</a></h3>
+                        <p class="card__subtitle">Горы, озёра, приключения</p>
+                        <div class="card__meta">
+                            <p class="rating"><span class="rating__value">4.9</span> <span class="rating__count">(856 отзывов)</span></p>
+                            <label class="fav">
+                                <input class="fav__input" type="checkbox" aria-label="Добавить Интерлакен в избранное">
+                                <span class="fav__icon" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--compact">
+                    <div class="card__media">
+                        <img class="card__img" src="images/kyoto.jpg" width="1000" height="584"
+                             alt="Храм Киёмидзу-дэра в Киото вечером, осенняя подсветка">
+                        <span class="card__location">Япония</span>
+                        <div class="card__overlay">
+                            <p class="card__overlay-text">Древняя столица: 1600 храмов и чайные домики Гиона</p>
+                            <ul class="card__facts">
+                                <li>Сезон: апрель, ноябрь</li>
+                                <li>Цветение сакуры и момидзи</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title"><a class="card__link" href="https://ru.wikipedia.org/wiki/Киото" target="_blank" rel="noopener">Киото</a></h3>
+                        <p class="card__subtitle">Культура и традиции</p>
+                        <div class="card__meta">
+                            <p class="rating"><span class="rating__value">4.7</span> <span class="rating__count">(932 отзыва)</span></p>
+                            <label class="fav">
+                                <input class="fav__input" type="checkbox" aria-label="Добавить Киото в избранное">
+                                <span class="fav__icon" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--compact">
+                    <div class="card__media">
+                        <img class="card__img" src="images/cabo-da-roca.jpg" width="1000" height="776"
+                             alt="Маяк на мысе Рока над скалистым берегом океана">
+                        <span class="card__location">Португалия</span>
+                        <div class="card__overlay">
+                            <p class="card__overlay-text">Самая западная точка континентальной Европы</p>
+                            <ul class="card__facts">
+                                <li>40 минут от Лиссабона</li>
+                                <li>Лучше всего — на закате</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title"><a class="card__link" href="https://ru.wikipedia.org/wiki/Рока_(мыс)" target="_blank" rel="noopener">Мыс Рока</a></h3>
+                        <p class="card__subtitle">Край Европы</p>
+                        <div class="card__meta">
+                            <p class="rating"><span class="rating__value">4.6</span> <span class="rating__count">(712 отзывов)</span></p>
+                            <label class="fav">
+                                <input class="fav__input" type="checkbox" aria-label="Добавить мыс Рока в избранное">
+                                <span class="fav__icon" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--compact">
+                    <div class="card__media">
+                        <img class="card__img" src="images/santorini.jpg" width="1000" height="666"
+                             alt="Белые дома и синие купола церквей в Ии на Санторини">
+                        <span class="card__location">Греция</span>
+                        <div class="card__overlay">
+                            <p class="card__overlay-text">Белые домики на краю вулканической кальдеры</p>
+                            <ul class="card__facts">
+                                <li>Сезон: май — октябрь</li>
+                                <li>Закат в Ии — обязателен</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title"><a class="card__link" href="https://ru.wikipedia.org/wiki/Санторини" target="_blank" rel="noopener">Санторини</a></h3>
+                        <p class="card__subtitle">Остров закатов</p>
+                        <div class="card__meta">
+                            <p class="rating"><span class="rating__value">4.8</span> <span class="rating__count">(1 105 отзывов)</span></p>
+                            <label class="fav">
+                                <input class="fav__input" type="checkbox" aria-label="Добавить Санторини в избранное">
+                                <span class="fav__icon" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--compact">
+                    <div class="card__media">
+                        <img class="card__img" src="images/baikal.jpg" width="1000" height="665"
+                             alt="Пролив Малое море на Байкале на рассвете">
+                        <span class="card__location">Россия</span>
+                        <div class="card__overlay">
+                            <p class="card__overlay-text">Самое глубокое озеро планеты и остров Ольхон</p>
+                            <ul class="card__facts">
+                                <li>Сезон: февраль — март, июль</li>
+                                <li>Прозрачный лёд и скала Шаманка</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title"><a class="card__link" href="https://ru.wikipedia.org/wiki/Байкал" target="_blank" rel="noopener">Байкал</a></h3>
+                        <p class="card__subtitle">Озеро-легенда</p>
+                        <div class="card__meta">
+                            <p class="rating"><span class="rating__value">4.9</span> <span class="rating__count">(2 318 отзывов)</span></p>
+                            <label class="fav">
+                                <input class="fav__input" type="checkbox" aria-label="Добавить Байкал в избранное">
+                                <span class="fav__icon" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--compact">
+                    <div class="card__media">
+                        <img class="card__img" src="images/kirkjufell.jpg" width="1000" height="666"
+                             alt="Гора Киркьюфелл и водопад в Исландии">
+                        <span class="card__location">Исландия</span>
+                        <div class="card__overlay">
+                            <p class="card__overlay-text">Самая фотографируемая гора Исландии</p>
+                            <ul class="card__facts">
+                                <li>Северное сияние: сентябрь — март</li>
+                                <li>Полуостров Снайфедльснес</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title"><a class="card__link" href="https://ru.wikipedia.org/wiki/Киркьюфетль" target="_blank" rel="noopener">Киркьюфелл</a></h3>
+                        <p class="card__subtitle">Гора-шляпа у океана</p>
+                        <div class="card__meta">
+                            <p class="rating"><span class="rating__value">4.7</span> <span class="rating__count">(604 отзыва)</span></p>
+                            <label class="fav">
+                                <input class="fav__input" type="checkbox" aria-label="Добавить Киркьюфелл в избранное">
+                                <span class="fav__icon" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="subscribe container" id="subscribe">
+            <div class="subscribe__box">
+                <div class="subscribe__intro">
+                    <h2 class="subscribe__title">Новые места — раз в неделю</h2>
+                    <p class="subscribe__text">Присылаем одну подборку направлений по пятницам, без спама.</p>
+                </div>
+                <form class="subscribe__form" action="#" method="get">
+                    <label class="subscribe__label" for="email">Ваш e-mail</label>
+                    <div class="subscribe__row">
+                        <input class="subscribe__input" type="email" id="email" name="email"
+                               placeholder="name@example.ru" required>
+                        <button class="btn subscribe__btn" type="submit">Подписаться</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>© 2026 ТурГид — учебный проект. Выполнил: Ананьев А. Н., ПГТУ.</p>
+            <p class="credits">
+                Фото: Wikimedia Commons — Майкл Гиммельфарб (CC BY-SA 4.0), Christian David (CC BY-SA 4.0),
+                Martin Falbisoner (CC BY-SA 4.0), Ввласенко (CC BY-SA 3.0), Giles Laurent (CC BY-SA 4.0),
+                Vyacheslav Argenberg (CC BY 4.0), Jakub Hałun (CC BY 4.0).
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

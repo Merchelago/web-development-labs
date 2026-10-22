@@ -1,0 +1,807 @@
+/* =========================================================
+   ТурГид — карточки туристических мест
+   Практическая работа №6, вариант 1. Ананьев А. Н.
+   ========================================================= */
+
+/* ---------- 1. Переменные (палитра из макета варианта) ---------- */
+:root {
+    --color-primary: #2b7de9;
+    --color-primary-dark: #1a64c7;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --color-bg: #f0f7ff;
+    --color-accent: #10b981;
+    --color-star-hover: #f59e0b;
+    --color-like: #ef4444;
+    --color-white: #ffffff;
+
+    --overlay: rgba(15, 23, 42, 0.78);
+    --overlay-soft: rgba(15, 23, 42, 0.15);
+
+    --radius: 18px;
+    --radius-small: 10px;
+    --shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
+    --shadow-hover: 0 18px 40px rgba(15, 23, 42, 0.22);
+    --focus-ring: 0 0 0 3px rgba(43, 125, 233, 0.35);
+    --ease: 0.35s ease;
+
+    /* SVG-иконки для mask-image: цвет иконки задаётся через background-color */
+    --icon-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.6A2.6 2.6 0 1 1 12 6.4a2.6 2.6 0 0 1 0 5.2z'/%3E%3C/svg%3E");
+    --icon-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z'/%3E%3C/svg%3E");
+    --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M12 20.5s-7.6-4.6-9.4-9.3C1.4 7.9 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.6 3.4 4.4 6.7-1.8 4.7-9.4 9.3-9.4 9.3z'/%3E%3C/svg%3E");
+    --icon-heart-filled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 20.5s-7.6-4.6-9.4-9.3C1.4 7.9 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.6 3.4 4.4 6.7-1.8 4.7-9.4 9.3-9.4 9.3z'/%3E%3C/svg%3E");
+    --icon-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6'/%3E%3C/svg%3E");
+    --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+
+/* ---------- 2. Сброс и базовые стили ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-text);          /* наследуется всеми потомками */
+    background-color: var(--color-bg);
+}
+
+h1, h2, h3, p, ul, dl, dd {
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;                     /* явное наследование цвета от родителя */
+}
+
+button,
+input {
+    font: inherit;                      /* формы по умолчанию шрифт не наследуют */
+}
+
+.container {
+    width: min(1180px, 100% - 40px);
+    margin-inline: auto;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+/* ---------- 3. Шапка и навигация ---------- */
+.site-header {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 68px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo__accent {
+    color: var(--color-primary);
+}
+
+.nav__list {
+    display: flex;
+    gap: 6px;
+    padding: 0;
+    list-style: none;
+}
+
+/* дочерний комбинатор: только пункты первого уровня */
+.nav__list > li {
+    position: relative;
+}
+
+.nav__link {
+    display: block;
+    padding: 8px 14px;
+    border-radius: var(--radius-small);
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color var(--ease), background-color var(--ease);
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+    color: var(--color-primary);
+    background-color: var(--color-bg);
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+/* селектор атрибута: активный пункт меню */
+.nav__link[aria-current="page"] {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* ---------- 4. Hero ---------- */
+.hero {
+    padding: 56px 0 48px;
+    color: var(--color-white);
+    background:
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.18) 0 120px, transparent 121px),
+        linear-gradient(120deg, #1f6fd8 0%, var(--color-primary) 45%, #5aa2f5 100%);
+}
+
+.hero__eyebrow {
+    margin-bottom: 8px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+.hero__title {
+    max-width: 720px;
+    font-size: 42px;
+    line-height: 1.15;
+}
+
+.hero__text {
+    max-width: 620px;
+    margin-top: 14px;
+    font-size: 18px;
+    opacity: 0.92;
+}
+
+/* ---------- 5. Секции ---------- */
+.featured,
+.places {
+    padding-top: 40px;
+}
+
+.featured__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* ---------- 6. Карточка туристического места ---------- */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+
+/* состояние «наведение» и «фокус внутри карточки» (клавиатура) */
+.card:hover,
+.card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-primary);
+}
+
+/* 6.1 Изображение: увеличивается только картинка, размер карточки не меняется */
+.card__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+}
+
+.card--large .card__media {
+    aspect-ratio: 4 / 3;
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.card:hover .card__img,
+.card:focus-within .card__img {
+    transform: scale(1.08);
+    filter: saturate(1.15);
+}
+
+/* 6.2 Затемняющий слой — отдельный псевдоэлемент поверх фотографии */
+.card__media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top, var(--overlay) 0%, rgba(15, 23, 42, 0.45) 55%, var(--overlay-soft) 100%);
+    opacity: 0;
+    transition: opacity var(--ease);
+}
+
+.card:hover .card__media::before,
+.card:focus-within .card__media::before {
+    opacity: 1;
+}
+
+/* 6.3 Текстовый overlay с дополнительными сведениями */
+.card__overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    padding: 20px 22px;
+    color: var(--color-white);          /* наследуют все абзацы и пункты внутри */
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity var(--ease), transform var(--ease);
+}
+
+.card:hover .card__overlay,
+.card:focus-within .card__overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card__overlay-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.card__overlay-subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.card__overlay-text {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.card--compact .card__overlay-text {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.card__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+}
+
+.card__facts li {
+    padding: 3px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.14);
+}
+
+/* 6.4 Бейдж страны с иконкой-меткой (::before) */
+.card__location {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px 5px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: rgba(255, 255, 255, 0.92);
+    transition: background-color var(--ease), color var(--ease);
+}
+
+.card__location::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    -webkit-mask: var(--icon-pin) center / contain no-repeat;
+            mask: var(--icon-pin) center / contain no-repeat;
+}
+
+.card:hover .card__location,
+.card:focus-within .card__location {
+    color: var(--color-white);
+    background-color: rgba(15, 23, 42, 0.55);
+}
+
+/* 6.5 Текстовая часть карточки */
+.card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 24px 24px;
+}
+
+.card__title {
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.card--compact .card__title {
+    font-size: 20px;
+}
+
+/* декоративная линия под названием (::after), растёт при наведении */
+.card__title::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 3px;
+    margin-top: 6px;
+    border-radius: 3px;
+    background-color: var(--color-primary);
+    transition: width var(--ease);
+}
+
+.card:hover .card__title::after,
+.card:focus-within .card__title::after {
+    width: 84px;
+}
+
+.card__subtitle {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.card__text {
+    color: var(--color-muted);
+}
+
+.card__link {
+    text-decoration: none;
+}
+
+/* «растянутая» ссылка: ::after делает кликабельной всю карточку */
+.card__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
+
+/* вместо outline у ссылки — рамка фокуса вокруг всей карточки */
+.card__link:focus-visible {
+    outline: none;
+}
+
+.card__link:focus-visible::after {
+    border-radius: var(--radius);
+    box-shadow: inset 0 0 0 3px var(--color-primary);
+}
+
+.card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+/* 6.6 Рейтинг: звезда — псевдоэлемент */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rating::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background-color: var(--color-accent);
+    -webkit-mask: var(--icon-star) center / contain no-repeat;
+            mask: var(--icon-star) center / contain no-repeat;
+    transition: background-color var(--ease), transform var(--ease);
+}
+
+.card:hover .rating::before,
+.card:focus-within .rating::before {
+    background-color: var(--color-star-hover);
+    transform: rotate(-12deg) scale(1.1);
+}
+
+.rating__value {
+    font-weight: 700;
+}
+
+.rating__count {
+    color: var(--color-muted);
+}
+
+/* 6.7 «В избранное»: checkbox + :checked, без JavaScript */
+.fav {
+    position: relative;
+    z-index: 5;                         /* выше растянутой ссылки */
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.fav__input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.fav__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    transition: background-color var(--ease), transform var(--ease);
+}
+
+.fav__icon::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background-color: var(--color-muted);
+    -webkit-mask: var(--icon-heart) center / contain no-repeat;
+            mask: var(--icon-heart) center / contain no-repeat;
+    transition: background-color var(--ease);
+}
+
+.fav:hover .fav__icon {
+    background-color: #fde8e8;
+    transform: scale(1.12);
+}
+
+.fav:hover .fav__icon::before {
+    background-color: var(--color-like);
+}
+
+/* соседний комбинатор: иконка сразу после отмеченного checkbox */
+.fav__input:checked + .fav__icon::before {
+    background-color: var(--color-like);
+    -webkit-mask-image: var(--icon-heart-filled);
+            mask-image: var(--icon-heart-filled);
+}
+
+.fav__input:focus-visible + .fav__icon {
+    box-shadow: var(--focus-ring);
+}
+
+/* ---------- 7. Кнопки ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border: 2px solid transparent;
+    border-radius: var(--radius-small);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--ease), box-shadow var(--ease), transform 0.15s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-dark);
+    box-shadow: 0 8px 18px rgba(43, 125, 233, 0.35);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--color-text);
+    outline-offset: 3px;
+}
+
+/* стрелка у ссылки «Подробнее» (::after), сдвигается при наведении */
+.card__btn {
+    margin-top: 14px;
+}
+
+.card__btn::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: currentColor;
+    -webkit-mask: var(--icon-arrow) center / contain no-repeat;
+            mask: var(--icon-arrow) center / contain no-repeat;
+    transition: transform var(--ease);
+}
+
+.card__btn:hover::after,
+.card__btn:focus-visible::after {
+    transform: translateX(5px);
+}
+
+/* ---------- 8. Боковой блок «Почему стоит поехать» ---------- */
+.featured__aside {
+    padding: 28px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow);
+}
+
+.featured__aside-title {
+    margin: 14px 0 16px;
+    font-size: 22px;
+}
+
+.facts + .featured__aside-title {
+    margin-top: 26px;
+}
+
+/* бейдж с пульсирующей точкой: показывает «активный» сезон */
+.season-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    color: #047857;
+    background-color: #d1fae5;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.season-badge::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
+    50%      { transform: scale(1.2); box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+}
+
+.checklist {
+    display: grid;
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+}
+
+.checklist li {
+    position: relative;
+    padding-left: 34px;
+}
+
+/* маркер-галочка в кружке вместо стандартной точки списка */
+.checklist li::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+}
+
+.checklist li::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-white);
+    -webkit-mask: var(--icon-check) center / contain no-repeat;
+            mask: var(--icon-check) center / contain no-repeat;
+}
+
+.facts {
+    margin-top: 22px;
+    border-top: 1px solid var(--color-border);
+}
+
+.facts__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--color-border);
+}
+
+.facts dt {
+    color: var(--color-muted);
+}
+
+.facts dd {
+    font-weight: 600;
+}
+
+/* маршрут: номера дней выводятся счётчиком CSS в ::before */
+.route {
+    display: grid;
+    gap: 14px;
+    padding: 0;
+    list-style: none;
+    counter-reset: day;
+}
+
+.route li {
+    position: relative;
+    padding-left: 48px;
+    counter-increment: day;
+    color: var(--color-muted);
+}
+
+.route strong {
+    color: var(--color-text);
+}
+
+.route li::before {
+    content: counter(day);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-small);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ---------- 9. Подписка (селектор по id и по атрибуту) ---------- */
+#subscribe {
+    padding: 48px 0 56px;
+}
+
+.subscribe__box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 32px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #e0edff 0%, #f5f9ff 100%);
+    border: 1px solid #cfe0fb;
+}
+
+.subscribe__title {
+    font-size: 24px;
+}
+
+.subscribe__text {
+    color: var(--color-muted);
+}
+
+.subscribe__label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.subscribe__row {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="email"] {
+    width: 280px;
+    padding: 12px 14px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-small);
+    background-color: var(--color-white);
+    transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+input[type="email"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: var(--focus-ring);
+    outline: none;
+}
+
+/* неверный адрес подсвечивается только после ввода */
+input[type="email"]:invalid:not(:placeholder-shown) {
+    border-color: var(--color-like);
+}
+
+/* ---------- 10. Подвал ---------- */
+.site-footer {
+    padding: 24px 0;
+    color: #cbd5e1;
+    background-color: var(--color-text);
+    font-size: 14px;
+}
+
+.site-footer__inner {
+    display: grid;
+    gap: 6px;
+}
+
+.credits {
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+/* ---------- 11. Ширина окна меньше 900 / 600 px ---------- */
+@media (max-width: 900px) {
+    .featured__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__title {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 0;
+    }
+
+    .nav__list {
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding: 36px 0 32px;
+    }
+
+    .hero__title {
+        font-size: 28px;
+    }
+
+    .card__body {
+        padding: 16px 18px 20px;
+    }
+
+    .card__overlay-title {
+        font-size: 26px;
+    }
+
+    .subscribe__box {
+        padding: 22px;
+    }
+
+    .subscribe__row {
+        flex-direction: column;
+    }
+
+    input[type="email"] {
+        width: 100%;
+    }
+}
