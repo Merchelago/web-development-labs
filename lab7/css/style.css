@@ -1,0 +1,1255 @@
+/* =====================================================================
+   TaskFlow — адаптивная страница SaaS-сервиса (ПР №7, вариант 1)
+   Desktop: Grid (Hero, карточки, инфоблок, тарифы) + Flexbox (шапка,
+   кнопки, подвал). Контрольная граница адаптации — 768px.
+   ===================================================================== */
+
+/* ---------- 1. Переменные: палитра из макета, размеры ---------- */
+:root {
+    --c-primary: #2563EB;
+    --c-primary-dark: #1D4ED8;
+    --c-primary-soft: #EFF6FF;
+    --c-text: #1E293B;
+    --c-muted: #64748B;
+    --c-border: #E2E8F0;
+    --c-bg: #FFFFFF;
+    --c-bg-alt: #F8FAFC;
+
+    --container: 72rem;                       /* 1152px */
+    --gutter: clamp(1rem, 4%, 2rem);          /* боковой отступ контейнера */
+    --radius: 1rem;
+    --shadow: 0 1px 2px rgb(15 23 42 / .05), 0 4px 12px rgb(15 23 42 / .04);
+    --shadow-hover: 0 12px 28px rgb(37 99 235 / .14);
+    --header-h: 4.5rem;
+}
+
+/* ---------- 2. Базовые стили ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Inter, Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--c-text);
+    background: var(--c-bg);
+}
+
+img {
+    display: block;
+    max-width: 100%;   /* изображения не выходят за границы контейнера */
+    height: auto;      /* и сохраняют пропорции */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* Единая ширина контейнера для всех секций */
+.container {
+    width: min(100% - 2 * var(--gutter), var(--container));
+    margin-inline: auto;
+}
+
+.page {
+    background: var(--c-bg);
+}
+
+/* ---------- 3. Кнопки ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: .75rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: .625rem;
+    font: inherit;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .2s, color .2s, box-shadow .2s, transform .2s;
+}
+
+.btn--sm {
+    min-height: 2.5rem;
+    padding: .5rem 1.4rem;
+}
+
+.btn--primary {
+    background: var(--c-primary);
+    color: #fff;
+}
+
+.btn--primary:hover {
+    background: var(--c-primary-dark);
+    box-shadow: 0 6px 16px rgb(37 99 235 / .3);
+    transform: translateY(-1px);
+}
+
+.btn--outline {
+    border-color: var(--c-primary);
+    color: var(--c-primary);
+    background: #fff;
+}
+
+.btn--outline:hover {
+    background: var(--c-primary-soft);
+}
+
+.btn:focus-visible,
+.nav a:focus-visible,
+.view-switch__btn:focus-visible {
+    outline: 3px solid rgb(37 99 235 / .45);
+    outline-offset: 2px;
+}
+
+/* ---------- 4. Header (Flexbox) ---------- */
+.header {
+    position: sticky;              /* шапка закрепляется при прокрутке */
+    top: 0;
+    z-index: 10;
+    background: rgb(255 255 255 / .92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--c-border);
+}
+
+.header__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: var(--header-h);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: var(--c-text);
+}
+
+.logo span {
+    color: var(--c-primary);
+}
+
+.nav {
+    flex: 1 1 auto;                /* навигация занимает свободное место между логотипом и кнопками */
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav__list a {
+    font-size: .95rem;
+    font-weight: 500;
+    color: var(--c-text);
+    transition: color .2s;
+}
+
+.nav__list a:hover {
+    color: var(--c-primary);
+}
+
+.nav__login {
+    display: none;                 /* «Войти» внутри меню нужен только на Mobile */
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Переключатель Desktop / Mobile */
+.view-switch {
+    display: inline-flex;
+    gap: .125rem;
+    padding: .25rem;
+    border-radius: .625rem;
+    background: #F1F5F9;
+}
+
+.view-switch__btn {
+    position: relative;            /* контекст для индикатора-точки */
+    padding: .35rem .7rem;
+    border: 0;
+    border-radius: .45rem;
+    background: transparent;
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--c-muted);
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+
+.view-switch__btn:hover {
+    color: var(--c-text);
+}
+
+.view-switch__btn[aria-pressed="true"] {
+    background: #fff;
+    color: var(--c-primary);
+    box-shadow: 0 1px 3px rgb(15 23 42 / .12);
+}
+
+/* Точка показывает, какая раскладка применена сейчас (важно в режиме «Авто») */
+:root[data-layout="desktop"] .view-switch__btn[data-view="desktop"]::after,
+:root[data-layout="mobile"] .view-switch__btn[data-view="mobile"]::after {
+    content: "";
+    position: absolute;
+    top: .2rem;
+    right: .2rem;
+    width: .35rem;
+    height: .35rem;
+    border-radius: 50%;
+    background: #22C55E;
+}
+
+/* Кнопка-бургер (видна только на Mobile) */
+.nav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: .3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--c-text);
+    transition: transform .2s, opacity .2s;
+}
+
+/* ---------- 5. Hero (Grid: текст + изображение) ---------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 5.5rem);
+    background:
+        radial-gradient(40rem 22rem at 85% 30%, rgb(37 99 235 / .10), transparent 70%),
+        linear-gradient(180deg, #FFFFFF 0%, #F1F5FF 100%);
+}
+
+.hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    grid-template-areas: "text visual";
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+}
+
+.hero__text {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.hero__visual {
+    grid-area: visual;
+    margin: 0;
+}
+
+.eyebrow {
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--c-muted);
+}
+
+.hero__title {
+    font-size: clamp(2.5rem, 1.6rem + 2.4vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+}
+
+.hero__lead {
+    max-width: 30rem;
+    font-size: 1.1rem;
+    color: #475569;
+}
+
+.hero__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+
+/* ---------- 6. Ноутбук с интерфейсом TaskFlow ---------- */
+.laptop {
+    container-type: inline-size;   /* размеры интерфейса считаются от ширины ноутбука (cqi) */
+    position: relative;
+    width: 92%;                    /* запас под основание ноутбука, которое шире крышки */
+    max-width: 40rem;
+    margin-inline: auto;
+    filter: drop-shadow(0 24px 30px rgb(15 23 42 / .18));
+}
+
+.laptop__lid {
+    aspect-ratio: 16 / 10.4;
+    padding: 2.4cqi 2.4cqi 2.8cqi;
+    border-radius: 3cqi 3cqi 0 0;
+    background: #0F172A;
+}
+
+.laptop__base {
+    position: relative;
+    height: 3.4cqi;
+    margin-inline: -5%;
+    border-radius: 0 0 4cqi 4cqi;
+    background: linear-gradient(#E2E8F0, #94A3B8);
+}
+
+.laptop__base::before {             /* выемка для открытия крышки */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 16%;
+    height: 40%;
+    border-radius: 0 0 1.2cqi 1.2cqi;
+    background: #94A3B8;
+    transform: translateX(-50%);
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 27% 1fr;
+    height: 100%;
+    overflow: hidden;
+    border-radius: .6cqi;
+    background: #fff;
+    font-size: 2.1cqi;
+    line-height: 1.35;
+}
+
+.app__sidebar {
+    padding: 1.2em .9em;
+    background: #111C33;
+    color: #CBD5E1;
+}
+
+.app__logo {
+    display: flex;
+    align-items: center;
+    gap: .45em;
+    margin-bottom: 1.2em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.app__logo-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: .25em;
+    background: var(--c-primary);
+    font-size: .8em;
+}
+
+.app__menu {
+    display: flex;
+    flex-direction: column;
+    gap: .25em;
+}
+
+.app__menu li {
+    padding: .4em .6em;
+    border-radius: .4em;
+    font-size: .92em;
+}
+
+.app__menu li::before {
+    content: "▢";
+    margin-right: .55em;
+    opacity: .6;
+}
+
+.app__menu .is-active {
+    background: rgb(255 255 255 / .1);
+    color: #fff;
+}
+
+.app__main {
+    display: flex;
+    flex-direction: column;
+    gap: .8em;
+    min-width: 0;
+    padding: 1.1em 1.4em;
+}
+
+.app__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.app__search {
+    flex: 0 1 60%;
+    padding: .35em .8em;
+    border-radius: .5em;
+    background: #F1F5F9;
+    font-size: .85em;
+    color: #94A3B8;
+}
+
+.app__avatar {
+    display: grid;
+    place-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: var(--c-primary);
+    color: #fff;
+    font-size: .8em;
+    font-weight: 700;
+}
+
+.app__title {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.app__tabs {
+    display: flex;
+    gap: 1.4em;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.app__tabs input {
+    position: absolute;
+    opacity: 0;
+}
+
+.app__tabs label {
+    padding-bottom: .45em;
+    border-bottom: 2px solid transparent;
+    font-size: .9em;
+    color: var(--c-muted);
+    cursor: pointer;
+}
+
+.app__tabs input:checked + label {
+    border-color: var(--c-primary);
+    color: var(--c-primary);
+    font-weight: 600;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: .55em 0;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: .92em;
+}
+
+.task label {
+    display: flex;
+    align-items: center;
+    gap: .7em;
+    cursor: pointer;
+}
+
+.task input {
+    appearance: none;
+    flex: none;
+    width: 1.05em;
+    height: 1.05em;
+    margin: 0;
+    border: .14em solid #94A3B8;
+    border-radius: .22em;
+    cursor: pointer;
+}
+
+.task--urgent input {
+    border-color: #EF4444;
+}
+
+.task input:checked {
+    border-color: #22C55E;
+    background: #22C55E;
+    box-shadow: inset 0 0 0 .14em #fff;
+}
+
+.task:has(input:checked) label {
+    color: var(--c-muted);
+    text-decoration: line-through;
+}
+
+.task time {
+    font-size: .85em;
+    color: var(--c-muted);
+    white-space: nowrap;
+}
+
+/* Фильтр задач на чистом CSS: состояние хранится в radio/checkbox
+   и не теряется при перестройке страницы */
+.app:has(#tf-work:checked) .task:has(input:checked),
+.app:has(#tf-done:checked) .task:not(:has(input:checked)) {
+    display: none;
+}
+
+/* ---------- 7. Секции ---------- */
+.section {
+    padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+.section__title {
+    font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+}
+
+/* Возможности: три карточки в одну строку (Grid) */
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.75rem;
+}
+
+.card {
+    position: relative;            /* контекст для бейджа */
+    display: grid;
+    grid-template-areas:
+        "icon"
+        "title"
+        "text";
+    justify-items: start;
+    align-content: start;
+    gap: .5rem;
+    padding: 1.75rem;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius);
+    background: #fff;
+    box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #BFDBFE;
+    box-shadow: var(--shadow-hover);
+}
+
+.card__icon {
+    grid-area: icon;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-bottom: .5rem;
+    padding: .7rem;
+    border-radius: .8rem;
+    background: var(--c-primary-soft);
+}
+
+.card__title {
+    grid-area: title;
+    font-size: 1.2rem;
+}
+
+.card__text {
+    grid-area: text;
+    color: var(--c-muted);
+}
+
+.card__badge {
+    position: absolute;            /* бейдж прижат к правому верхнему углу карточки */
+    top: 1rem;
+    right: 1rem;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    background: #DBEAFE;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--c-primary);
+}
+
+/* Информационный блок «Команда — главная ценность» (Grid: изображение + текст) */
+.about {
+    padding-top: 0;
+}
+
+.about__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+}
+
+.about__photo {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;             /* фото заполняет блок без искажения пропорций */
+    border-radius: var(--radius);
+}
+
+.about__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.about__text p {
+    font-size: 1.1rem;
+    color: #475569;
+}
+
+/* Тарифы */
+.pricing {
+    background: var(--c-bg-alt);
+    border-block: 1px solid var(--c-border);
+}
+
+.pricing__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.billing {
+    display: inline-flex;
+    padding: .25rem;
+    border-radius: .7rem;
+    background: #E2E8F0;
+}
+
+.billing input {
+    position: absolute;
+    opacity: 0;
+}
+
+.billing label {
+    padding: .45rem 1rem;
+    border-radius: .5rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--c-muted);
+    cursor: pointer;
+}
+
+.billing input:checked + label {
+    background: #fff;
+    color: var(--c-text);
+    box-shadow: 0 1px 3px rgb(15 23 42 / .12);
+}
+
+.price-year {
+    display: none;
+}
+
+.pricing:has(#bill-year:checked) .price-month {
+    display: none;
+}
+
+.pricing:has(#bill-year:checked) .price-year {
+    display: inline;
+}
+
+.pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.75rem;
+}
+
+.plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 2rem 1.75rem;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius);
+    background: #fff;
+    box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.plan:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.plan--featured {
+    border: 2px solid var(--c-primary);
+}
+
+.plan__badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: .2rem .8rem;
+    border-radius: 999px;
+    background: var(--c-primary);
+    font-size: .75rem;
+    font-weight: 700;
+    color: #fff;
+    transform: translate(-50%, -50%);
+}
+
+.plan__name {
+    font-size: 1.2rem;
+}
+
+.plan__price {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.plan__price small {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--c-muted);
+}
+
+.plan__note {
+    color: var(--c-muted);
+}
+
+.plan__list {
+    flex: 1 1 auto;                /* список растягивается — кнопки всех тарифов на одном уровне */
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    margin-block: .5rem 1rem;
+}
+
+.plan__list li::before {
+    content: "✓";
+    margin-right: .5rem;
+    font-weight: 700;
+    color: var(--c-primary);
+}
+
+/* ---------- 8. Footer (Flexbox) ---------- */
+.footer {
+    padding-block: 2rem;
+    border-top: 1px solid var(--c-border);
+}
+
+.footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem 2.5rem;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 2rem;
+    margin-right: auto;
+    font-size: .95rem;
+}
+
+.footer__nav a:hover {
+    color: var(--c-primary);
+}
+
+.footer__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .5rem;
+}
+
+.social {
+    display: flex;
+    gap: .75rem;
+}
+
+.social a {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: .5rem;
+    transition: background-color .2s;
+}
+
+.social a:hover {
+    background: #F1F5F9;
+}
+
+.copyright {
+    font-size: .8rem;
+    color: var(--c-muted);
+}
+
+/* ---------- 9. Планшет: ≤ 1024px ---------- */
+@media (max-width: 1024px) {
+    .header__inner {
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .nav__list {
+        gap: 1rem;
+    }
+
+    .nav__list a {
+        font-size: .875rem;
+    }
+
+    .view-switch__btn {
+        padding: .3rem .45rem;
+        font-size: .72rem;
+    }
+
+    .btn--sm {
+        padding-inline: 1rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+}
+
+/* =====================================================================
+   10. MOBILE — автоматическая перестройка при ширине окна ≤ 768px.
+   Правила не действуют, если пользователь вручную выбрал Desktop.
+   ===================================================================== */
+@media (max-width: 768px) {
+    :root:not([data-view="desktop"]) {
+        --header-h: 4rem;
+
+        .header__inner {
+            flex-wrap: wrap;
+            gap: .75rem;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+        }
+
+        .burger {
+            display: flex;
+            order: 3;
+        }
+
+        .header__actions {
+            order: 2;
+            margin-left: auto;
+        }
+
+        .header__actions .btn {
+            display: none;
+        }
+
+        .view-switch__btn {
+            padding: .3rem .45rem;
+            font-size: .72rem;
+        }
+
+        .nav {
+            display: none;
+            order: 4;
+            flex-basis: 100%;
+        }
+
+        .nav-toggle:checked ~ .nav {
+            display: block;
+        }
+
+        .nav-toggle:checked + .burger span:nth-child(1) { transform: translateY(.45rem) rotate(45deg); }
+        .nav-toggle:checked + .burger span:nth-child(2) { opacity: 0; }
+        .nav-toggle:checked + .burger span:nth-child(3) { transform: translateY(-.45rem) rotate(-45deg); }
+
+        .nav__list {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            padding-bottom: .75rem;
+        }
+
+        .nav__list a {
+            display: block;
+            padding: .7rem 0;
+            border-top: 1px solid var(--c-border);
+        }
+
+        .nav__login {
+            display: block;
+        }
+
+        .hero {
+            padding-block: 2rem 2.5rem;
+        }
+
+        .hero__inner {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "text"
+                "visual";
+            gap: 2rem;
+        }
+
+        .hero__title {
+            font-size: 2.25rem;
+        }
+
+        .hero__lead {
+            font-size: 1rem;
+        }
+
+        .hero__buttons {
+            flex-direction: column;
+            gap: .75rem;
+        }
+
+        .section {
+            padding-block: 2.5rem;
+        }
+
+        .section__title {
+            font-size: 1.6rem;
+        }
+
+        .features__grid {
+            grid-template-columns: 1fr;
+            gap: .75rem;
+            margin-top: 1.25rem;
+        }
+
+        .card {
+            grid-template-columns: auto 1fr;
+            grid-template-areas:
+                "icon title"
+                "icon text";
+            column-gap: 1rem;
+            row-gap: .2rem;
+            padding: 1rem;
+        }
+
+        .card__icon {
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: 0;
+            padding: .55rem;
+        }
+
+        .card__title {
+            font-size: 1.05rem;
+        }
+
+        .card__text {
+            font-size: .92rem;
+        }
+
+        .about {
+            padding-top: 0;
+        }
+
+        .about__inner {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .pricing__head {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .pricing__grid {
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .footer__inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+
+        .footer__nav {
+            gap: .5rem 1.25rem;
+        }
+
+        .footer__side {
+            align-items: flex-start;
+        }
+    }
+}
+
+/* =====================================================================
+   11. MOBILE — ручной режим (кнопка «Mobile» в шапке).
+   Те же правила, что и в медиазапросе выше, но включаются атрибутом
+   data-view="mobile" независимо от ширины окна. Страница показывается
+   в рамке шириной как у смартфона.
+   ===================================================================== */
+:root[data-view="mobile"] {
+    --header-h: 4rem;
+    background: #CBD5E1;
+
+    body {
+        background: #CBD5E1;
+    }
+
+    .page {
+        max-width: 25rem;
+        margin: 1.5rem auto;
+        overflow: clip;
+        border-radius: 2rem;
+        box-shadow: 0 0 0 .6rem #0F172A, 0 30px 60px rgb(15 23 42 / .35);
+    }
+
+    .header__inner {
+        flex-wrap: wrap;
+        gap: .75rem;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+    }
+
+    .burger {
+        display: flex;
+        order: 3;
+    }
+
+    .header__actions {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .header__actions .btn {
+        display: none;
+    }
+
+    .view-switch__btn {
+        padding: .3rem .45rem;
+        font-size: .72rem;
+    }
+
+    .nav {
+        display: none;
+        order: 4;
+        flex-basis: 100%;
+    }
+
+    .nav-toggle:checked ~ .nav {
+        display: block;
+    }
+
+    .nav-toggle:checked + .burger span:nth-child(1) { transform: translateY(.45rem) rotate(45deg); }
+    .nav-toggle:checked + .burger span:nth-child(2) { opacity: 0; }
+    .nav-toggle:checked + .burger span:nth-child(3) { transform: translateY(-.45rem) rotate(-45deg); }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-bottom: .75rem;
+    }
+
+    .nav__list a {
+        display: block;
+        padding: .7rem 0;
+        border-top: 1px solid var(--c-border);
+    }
+
+    .nav__login {
+        display: block;
+    }
+
+    .hero {
+        padding-block: 2rem 2.5rem;
+    }
+
+    .hero__inner {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "text"
+            "visual";
+        gap: 2rem;
+    }
+
+    .hero__title {
+        font-size: 2.25rem;
+    }
+
+    .hero__lead {
+        font-size: 1rem;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        gap: .75rem;
+    }
+
+    .section {
+        padding-block: 2.5rem;
+    }
+
+    .section__title {
+        font-size: 1.6rem;
+    }
+
+    .features__grid {
+        grid-template-columns: 1fr;
+        gap: .75rem;
+        margin-top: 1.25rem;
+    }
+
+    .card {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "icon title"
+            "icon text";
+        column-gap: 1rem;
+        row-gap: .2rem;
+        padding: 1rem;
+    }
+
+    .card__icon {
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: 0;
+        padding: .55rem;
+    }
+
+    .card__title {
+        font-size: 1.05rem;
+    }
+
+    .card__text {
+        font-size: .92rem;
+    }
+
+    .about {
+        padding-top: 0;
+    }
+
+    .about__inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .pricing__head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pricing__grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+    .footer__nav {
+        gap: .5rem 1.25rem;
+    }
+
+    .footer__side {
+        align-items: flex-start;
+    }
+}
+
+/* Ручной режим Desktop: на узком экране страница сохраняет ширину ПК-версии
+   (появляется горизонтальная прокрутка, как у «версии для компьютера»). */
+:root[data-view="desktop"] .page {
+    min-width: 64rem;
+}
+
+/* Плавающая кнопка возврата: закреплена относительно окна, а не страницы,
+   поэтому видна даже когда шапка с переключателем ушла за правый край. */
+.view-fab {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+    display: none;
+    padding: .75rem 1.25rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--c-text);
+    font: inherit;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 8px 24px rgb(15 23 42 / .3);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    :root[data-view="desktop"] .view-fab {
+        display: block;
+    }
+}
+
+/* Без анимаций для пользователей, отключивших их в системе */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

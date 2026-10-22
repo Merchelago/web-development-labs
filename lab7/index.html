@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru" data-view="auto" data-layout="desktop">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TaskFlow — сервис для управления проектами и совместной работы команды">
+    <meta name="author" content="Ананьев Александр Николаевич">
+    <title>TaskFlow — удобное управление проектами</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+    <!-- ===== Шапка: логотип, навигация, переключатель вида, кнопка входа ===== -->
+    <header class="header">
+        <div class="container header__inner">
+            <a class="logo" href="#top" aria-label="TaskFlow — на главную">Task<span>Flow</span></a>
+
+            <input class="nav-toggle" type="checkbox" id="nav-toggle">
+            <label class="burger" for="nav-toggle" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </label>
+
+            <nav class="nav" aria-label="Основное меню">
+                <ul class="nav__list">
+                    <li><a href="#features">Возможности</a></li>
+                    <li><a href="#pricing">Тарифы</a></li>
+                    <li><a href="#about">Блог</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                    <li class="nav__login"><a href="#pricing">Войти</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <div class="view-switch" role="group" aria-label="Представление страницы">
+                    <button type="button" class="view-switch__btn" data-view="auto" aria-pressed="true" title="Автоматически по ширине окна">Авто</button>
+                    <button type="button" class="view-switch__btn" data-view="desktop" aria-pressed="false" title="Версия для компьютера">Desktop</button>
+                    <button type="button" class="view-switch__btn" data-view="mobile" aria-pressed="false" title="Мобильная версия">Mobile</button>
+                </div>
+                <a class="btn btn--primary btn--sm" href="#pricing">Войти</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- ===== Hero: текстовая и визуальная области ===== -->
+        <section class="hero">
+            <div class="container hero__inner">
+                <div class="hero__text">
+                    <p class="eyebrow">Проекты. Команда. Результат.</p>
+                    <h1 class="hero__title">Удобное управление проектами</h1>
+                    <p class="hero__lead">TaskFlow помогает командам планировать задачи, совместно работать и&nbsp;достигать результатов быстрее.</p>
+                    <div class="hero__buttons">
+                        <a class="btn btn--primary" href="#pricing">Начать бесплатно</a>
+                        <a class="btn btn--outline" href="#features">Смотреть демо</a>
+                    </div>
+                </div>
+
+                <!-- Изображение интерфейса TaskFlow на ноутбуке (собрано из HTML/CSS) -->
+                <figure class="hero__visual">
+                    <div class="laptop">
+                        <div class="laptop__lid">
+                            <div class="app">
+                                <aside class="app__sidebar">
+                                    <p class="app__logo"><span class="app__logo-mark">✓</span> TaskFlow</p>
+                                    <ul class="app__menu">
+                                        <li>Главная</li>
+                                        <li class="is-active">Задачи</li>
+                                        <li>Команда</li>
+                                        <li>Календарь</li>
+                                        <li>Файлы</li>
+                                        <li>Аналитика</li>
+                                        <li>Настройки</li>
+                                    </ul>
+                                </aside>
+                                <div class="app__main">
+                                    <div class="app__top">
+                                        <span class="app__search">Поиск задач…</span>
+                                        <span class="app__avatar" title="Александр Ананьев">АА</span>
+                                    </div>
+                                    <p class="app__title">Мои задачи</p>
+                                    <div class="app__tabs">
+                                        <input type="radio" name="task-filter" id="tf-all" checked>
+                                        <label for="tf-all">Все</label>
+                                        <input type="radio" name="task-filter" id="tf-work">
+                                        <label for="tf-work">В работе</label>
+                                        <input type="radio" name="task-filter" id="tf-done">
+                                        <label for="tf-done">Завершены</label>
+                                    </div>
+                                    <ul class="app__tasks">
+                                        <li class="task"><label><input type="checkbox"> Подготовить презентацию</label><time>Сегодня</time></li>
+                                        <li class="task"><label><input type="checkbox"> Разработать макет</label><time>12 мая</time></li>
+                                        <li class="task task--urgent"><label><input type="checkbox"> Провести встречу</label><time>14 мая</time></li>
+                                        <li class="task"><label><input type="checkbox" checked> Опубликовать релиз</label><time>16 мая</time></li>
+                                        <li class="task"><label><input type="checkbox"> Согласовать бюджет</label><time>18 мая</time></li>
+                                        <li class="task"><label><input type="checkbox" checked> Обновить документацию</label><time>20 мая</time></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="laptop__base"></div>
+                    </div>
+                    <figcaption class="visually-hidden">Интерфейс TaskFlow: список задач с фильтром</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== Возможности: три карточки в CSS Grid ===== -->
+        <section class="section features" id="features">
+            <div class="container">
+                <h2 class="section__title">Возможности</h2>
+                <div class="features__grid">
+                    <article class="card">
+                        <img class="card__icon" src="images/icons/users.svg" alt="" width="48" height="48">
+                        <h3 class="card__title">Совместная работа</h3>
+                        <p class="card__text">Работайте над проектами в&nbsp;реальном времени.</p>
+                    </article>
+                    <article class="card">
+                        <span class="card__badge">Новое</span>
+                        <img class="card__icon" src="images/icons/chart.svg" alt="" width="48" height="48">
+                        <h3 class="card__title">Аналитика</h3>
+                        <p class="card__text">Получайте наглядные отчёты и&nbsp;следите за&nbsp;прогрессом.</p>
+                    </article>
+                    <article class="card">
+                        <img class="card__icon" src="images/icons/shield.svg" alt="" width="48" height="48">
+                        <h3 class="card__title">Безопасность</h3>
+                        <p class="card__text">Ваши данные под надёжной защитой.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Информационный блок: изображение + текст ===== -->
+        <section class="section about" id="about">
+            <div class="container about__inner">
+                <img class="about__photo" src="images/team.jpg" alt="Команда работает над проектом за ноутбуками" width="1200" height="800">
+                <div class="about__text">
+                    <h2 class="section__title">Команда&nbsp;— главная ценность</h2>
+                    <p>TaskFlow создан для людей, которые стремятся делать больше вместе. В&nbsp;блоге рассказываем, как команды выстраивают процессы и&nbsp;не&nbsp;теряют фокус.</p>
+                    <a class="btn btn--outline" href="#contacts">Узнать больше</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Тарифы: страница тарифного плана ===== -->
+        <section class="section pricing" id="pricing">
+            <div class="container">
+                <div class="pricing__head">
+                    <h2 class="section__title">Тарифы</h2>
+                    <div class="billing" role="radiogroup" aria-label="Период оплаты">
+                        <input type="radio" name="billing" id="bill-month" checked>
+                        <label for="bill-month">Помесячно</label>
+                        <input type="radio" name="billing" id="bill-year">
+                        <label for="bill-year">За год −20%</label>
+                    </div>
+                </div>
+                <div class="pricing__grid">
+                    <article class="plan">
+                        <h3 class="plan__name">Старт</h3>
+                        <p class="plan__price"><span class="price-month">0 ₽</span><span class="price-year">0 ₽</span></p>
+                        <p class="plan__note">до 5 участников</p>
+                        <ul class="plan__list">
+                            <li>3 проекта</li>
+                            <li>Доска задач</li>
+                            <li>1 ГБ файлов</li>
+                        </ul>
+                        <a class="btn btn--outline" href="#top">Выбрать</a>
+                    </article>
+                    <article class="plan plan--featured">
+                        <span class="plan__badge">Популярный</span>
+                        <h3 class="plan__name">Команда</h3>
+                        <p class="plan__price"><span class="price-month">490 ₽</span><span class="price-year">390 ₽</span> <small>/ польз. в мес.</small></p>
+                        <p class="plan__note">до 50 участников</p>
+                        <ul class="plan__list">
+                            <li>Безлимитные проекты</li>
+                            <li>Аналитика и отчёты</li>
+                            <li>50 ГБ файлов</li>
+                        </ul>
+                        <a class="btn btn--primary" href="#top">Выбрать</a>
+                    </article>
+                    <article class="plan">
+                        <h3 class="plan__name">Бизнес</h3>
+                        <p class="plan__price"><span class="price-month">990 ₽</span><span class="price-year">790 ₽</span> <small>/ польз. в мес.</small></p>
+                        <p class="plan__note">без ограничений</p>
+                        <ul class="plan__list">
+                            <li>Единый вход (SSO)</li>
+                            <li>Резервные копии</li>
+                            <li>Приоритетная поддержка</li>
+                        </ul>
+                        <a class="btn btn--outline" href="#top">Выбрать</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Подвал: логотип, навигация, соцсети, копирайт ===== -->
+    <footer class="footer" id="contacts">
+        <div class="container footer__inner">
+            <a class="logo" href="#top">Task<span>Flow</span></a>
+            <nav class="footer__nav" aria-label="Навигация в подвале">
+                <a href="#features">Возможности</a>
+                <a href="#pricing">Тарифы</a>
+                <a href="#about">Блог</a>
+                <a href="mailto:hello@taskflow.example">Контакты</a>
+            </nav>
+            <div class="footer__side">
+                <ul class="social">
+                    <li><a href="#contacts" aria-label="Telegram"><img src="images/icons/telegram.svg" alt="" width="24" height="24"></a></li>
+                    <li><a href="#contacts" aria-label="ВКонтакте"><img src="images/icons/vk.svg" alt="" width="24" height="24"></a></li>
+                    <li><a href="#contacts" aria-label="YouTube"><img src="images/icons/youtube.svg" alt="" width="24" height="24"></a></li>
+                </ul>
+                <p class="copyright">© 2026 TaskFlow. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Видна только в режиме Desktop на узком экране: быстрый возврат к автоматической раскладке -->
+    <button type="button" class="view-fab" data-view="auto">Вернуть мобильную версию</button>
+
+</div>
+</body>
+</html>
