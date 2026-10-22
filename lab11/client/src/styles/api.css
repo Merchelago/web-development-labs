@@ -1,0 +1,36 @@
+/* Дополнения к стилям TaskFlow для клиента API */
+.banner {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    border-radius: 10px; padding: 10px 14px; font-size: 0.92rem;
+}
+.banner--error { background: #fdecec; color: #b42328; border: 1px solid #f7c4c6; }
+
+.api-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); margin-right: 8px; }
+.api-dot.is-online { background: #3ddc84; box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.2); }
+
+.chip--prio-high { --chip: var(--red); }
+.chip--prio-medium { --chip: var(--orange); }
+.chip--prio-low { --chip: #64748b; }
+
+.status-select {
+    appearance: none; border: 0; cursor: pointer; padding-right: 12px; font-family: inherit;
+}
+.status-select:focus { outline: 2px solid rgba(31, 111, 235, 0.35); }
+.task-row.is-busy { opacity: 0.55; }
+.table-wrap.is-loading { opacity: 0.6; transition: opacity 0.2s; }
+
+.categories { padding: 20px; max-width: 760px; display: grid; gap: 14px; }
+.categories h2 { margin: 0; }
+.categories__form { display: flex; gap: 10px; }
+.categories__form input:not([type="color"]), .categories__edit input {
+    flex: 1; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; outline: none;
+}
+.categories__form input[type="color"] { width: 48px; height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 3px; background: #fff; }
+.categories__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.categories__list li {
+    display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; background: #f8fafe;
+    border-left: 4px solid var(--chip);
+}
+.categories__swatch { width: 14px; height: 14px; border-radius: 50%; background: var(--chip); }
+.categories__actions { margin-left: auto; display: flex; gap: 4px; }
+.categories__edit { display: flex; gap: 8px; flex: 1; }
