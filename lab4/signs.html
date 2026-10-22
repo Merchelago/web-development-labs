@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорожные знаки</title>
+
+    <!-- Библиотеки jQuery и jQuery UI (виджет tooltip) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
+    <!-- Стили для подсказок -->
+    <style>
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip .ui-tooltip {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 5px;
+            z-index: 1;
+        }
+    </style>
+
+    <!-- Поиск изображений и вывод подсказки из атрибута data-hint -->
+    <script>
+        $(function () {
+            $(document).tooltip({
+                items: "img",
+                content: function () {
+                    var $element = $(this);
+                    if ($element.is("img")) {
+                        return $element.data('hint');
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Предупреждающие знаки -->
+    <p>
+        <img src="img/signs/1_10.svg" alt="Знак 1.10" height="100" class="tooltip" data-hint="1.10 «Выезд на набережную или берег»">
+        <img src="img/signs/1_15.svg" alt="Знак 1.15" height="100" class="tooltip" data-hint="1.15 «Скользкая дорога»">
+        <img src="img/signs/1_21.svg" alt="Знак 1.21" height="100" class="tooltip" data-hint="1.21 «Двустороннее движение»">
+        <img src="img/signs/1_27.svg" alt="Знак 1.27" height="100" class="tooltip" data-hint="1.27 «Дикие животные»">
+        <img src="img/signs/1_29.svg" alt="Знак 1.29" height="100" class="tooltip" data-hint="1.29 «Боковой ветер»">
+    </p>
+
+    <!-- Знаки приоритета -->
+    <p>
+        <img src="img/signs/2_1.svg" alt="Знак 2.1" height="100" class="tooltip" data-hint="2.1 «Главная дорога»">
+        <img src="img/signs/1_6.svg" alt="Знак 1.6" height="100" class="tooltip" data-hint="1.6 «Пересечение равнозначных дорог»">
+        <img src="img/signs/2_5.svg" alt="Знак 2.5" height="100" class="tooltip" data-hint="2.5 «Движение без остановки запрещено»">
+        <img src="img/signs/2_6.svg" alt="Знак 2.6" height="100" class="tooltip" data-hint="2.6 «Преимущество встречного движения»">
+        <img src="img/signs/2_7.svg" alt="Знак 2.7" height="100" class="tooltip" data-hint="2.7 «Преимущество перед встречным движением»">
+    </p>
+
+    <!-- Запрещающие знаки -->
+    <p>
+        <img src="img/signs/3_4.svg" alt="Знак 3.4" height="100" class="tooltip" data-hint="3.4 «Движение грузовых автомобилей запрещено»">
+        <img src="img/signs/3_7.svg" alt="Знак 3.7" height="100" class="tooltip" data-hint="3.7 «Движение с прицепом запрещено»">
+        <img src="img/signs/3_10.svg" alt="Знак 3.10" height="100" class="tooltip" data-hint="3.10 «Движение пешеходов запрещено»">
+        <img src="img/signs/3_13.svg" alt="Знак 3.13" height="100" class="tooltip" data-hint="3.13 «Ограничение высоты»">
+        <img src="img/signs/3_19.svg" alt="Знак 3.19" height="100" class="tooltip" data-hint="3.19 «Разворот запрещён»">
+    </p>
+
+    <!-- Ещё предупреждающие знаки -->
+    <p>
+        <img src="img/signs/1_1.svg" alt="Знак 1.1" height="100" class="tooltip" data-hint="1.1 «Железнодорожный переезд со шлагбаумом»">
+        <img src="img/signs/1_8.svg" alt="Знак 1.8" height="100" class="tooltip" data-hint="1.8 «Светофорное регулирование»">
+        <img src="img/signs/1_22.svg" alt="Знак 1.22" height="100" class="tooltip" data-hint="1.22 «Пешеходный переход»">
+        <img src="img/signs/1_23.svg" alt="Знак 1.23" height="100" class="tooltip" data-hint="1.23 «Дети»">
+        <img src="img/signs/1_25.svg" alt="Знак 1.25" height="100" class="tooltip" data-hint="1.25 «Дорожные работы»">
+    </p>
+
+    <!-- Ещё запрещающие знаки -->
+    <p>
+        <img src="img/signs/3_1.svg" alt="Знак 3.1" height="100" class="tooltip" data-hint="3.1 «Въезд запрещён»">
+        <img src="img/signs/3_2.svg" alt="Знак 3.2" height="100" class="tooltip" data-hint="3.2 «Движение запрещено»">
+        <img src="img/signs/3_20.svg" alt="Знак 3.20" height="100" class="tooltip" data-hint="3.20 «Обгон запрещён»">
+        <img src="img/signs/3_24.svg" alt="Знак 3.24" height="100" class="tooltip" data-hint="3.24 «Ограничение максимальной скорости»">
+        <img src="img/signs/3_27.svg" alt="Знак 3.27" height="100" class="tooltip" data-hint="3.27 «Остановка запрещена»">
+    </p>
+
+    <!-- Разные знаки -->
+    <p>
+        <img src="img/signs/2_4.svg" alt="Знак 2.4" height="100" class="tooltip" data-hint="2.4 «Уступите дорогу»">
+        <img src="img/signs/1_7.svg" alt="Знак 1.7" height="100" class="tooltip" data-hint="1.7 «Пересечение с круговым движением»">
+        <img src="img/signs/1_16.svg" alt="Знак 1.16" height="100" class="tooltip" data-hint="1.16 «Неровная дорога»">
+        <img src="img/signs/1_17.svg" alt="Знак 1.17" height="100" class="tooltip" data-hint="1.17 «Искусственная неровность»">
+        <img src="img/signs/3_28.svg" alt="Знак 3.28" height="100" class="tooltip" data-hint="3.28 «Стоянка запрещена»">
+    </p>
+</body>
+</html>

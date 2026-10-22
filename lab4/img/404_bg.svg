@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+    <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#07152e"/>
+            <stop offset="0.6" stop-color="#14396e"/>
+            <stop offset="1" stop-color="#2a6aa8"/>
+        </linearGradient>
+        <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#fff6d5" stop-opacity="0.55"/>
+            <stop offset="1" stop-color="#fff6d5" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="crescent">
+            <rect width="1920" height="1080" fill="#ffffff"/>
+            <circle cx="1590" cy="148" r="56" fill="#000000"/>
+        </mask>
+        <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0d2142"/>
+            <stop offset="1" stop-color="#050d1c"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Небо -->
+    <rect width="1920" height="1080" fill="url(#sky)"/>
+
+    <!-- Звёзды -->
+    <g fill="#ffffff">
+        <circle cx="120" cy="90" r="2"/>   <circle cx="260" cy="210" r="1.5"/> <circle cx="390" cy="60" r="2.2"/>
+        <circle cx="520" cy="160" r="1.4"/> <circle cx="640" cy="40" r="1.8"/>  <circle cx="760" cy="230" r="1.3"/>
+        <circle cx="880" cy="110" r="2"/>   <circle cx="1010" cy="70" r="1.5"/> <circle cx="1120" cy="190" r="1.8"/>
+        <circle cx="1230" cy="50" r="1.3"/> <circle cx="1340" cy="140" r="2"/>  <circle cx="1720" cy="250" r="1.6"/>
+        <circle cx="1810" cy="80" r="2.1"/> <circle cx="60" cy="300" r="1.4"/>  <circle cx="330" cy="330" r="1.2"/>
+        <circle cx="980" cy="300" r="1.4"/> <circle cx="1460" cy="320" r="1.2"/> <circle cx="1880" cy="360" r="1.5"/>
+        <circle cx="700" cy="350" r="1.1"/> <circle cx="200" cy="420" r="1.2"/> <circle cx="1600" cy="420" r="1.2"/>
+    </g>
+
+    <!-- Луна -->
+    <circle cx="1560" cy="170" r="150" fill="url(#moonGlow)"/>
+    <circle cx="1560" cy="170" r="62" fill="#fff3c4" mask="url(#crescent)"/>
+
+    <!-- Дальний план: силуэты деревьев -->
+    <path d="M0 820 Q60 740 120 800 Q170 720 240 790 Q300 730 360 800 Q420 750 480 805 L480 1080 L0 1080 Z" fill="#0a1a36" opacity="0.9"/>
+    <path d="M1440 810 Q1500 730 1570 795 Q1630 720 1700 790 Q1760 740 1820 800 Q1870 760 1920 790 L1920 1080 L1440 1080 Z" fill="#0a1a36" opacity="0.9"/>
+
+    <!-- Главный корпус университета -->
+    <g transform="translate(560 430)">
+        <!-- фронтон -->
+        <path d="M0 150 L400 20 L800 150 Z" fill="#0f2448"/>
+        <path d="M60 140 L400 45 L740 140 Z" fill="#132c57"/>
+        <!-- антаблемент -->
+        <rect x="-10" y="150" width="820" height="36" fill="#0f2448"/>
+        <!-- здание -->
+        <rect x="0" y="186" width="800" height="300" fill="#0c1e3d"/>
+        <!-- колонны -->
+        <g fill="#183766">
+            <rect x="40" y="186" width="34" height="300"/>  <rect x="140" y="186" width="34" height="300"/>
+            <rect x="240" y="186" width="34" height="300"/> <rect x="340" y="186" width="34" height="300"/>
+            <rect x="426" y="186" width="34" height="300"/> <rect x="526" y="186" width="34" height="300"/>
+            <rect x="626" y="186" width="34" height="300"/> <rect x="726" y="186" width="34" height="300"/>
+        </g>
+        <!-- окна: часть горит -->
+        <g fill="#ffd36b">
+            <rect x="92" y="220" width="30" height="46" rx="3"/>  <rect x="192" y="300" width="30" height="46" rx="3"/>
+            <rect x="292" y="220" width="30" height="46" rx="3"/> <rect x="578" y="220" width="30" height="46" rx="3"/>
+            <rect x="678" y="300" width="30" height="46" rx="3"/> <rect x="92" y="380" width="30" height="46" rx="3"/>
+        </g>
+        <g fill="#1d3f73">
+            <rect x="192" y="220" width="30" height="46" rx="3"/> <rect x="292" y="300" width="30" height="46" rx="3"/>
+            <rect x="578" y="300" width="30" height="46" rx="3"/> <rect x="678" y="220" width="30" height="46" rx="3"/>
+            <rect x="92" y="300" width="30" height="46" rx="3"/>  <rect x="292" y="380" width="30" height="46" rx="3"/>
+            <rect x="578" y="380" width="30" height="46" rx="3"/> <rect x="678" y="380" width="30" height="46" rx="3"/>
+            <rect x="192" y="380" width="30" height="46" rx="3"/>
+        </g>
+        <!-- двери -->
+        <path d="M368 486 L368 380 Q400 340 432 380 L432 486 Z" fill="#ffcf5c" opacity="0.85"/>
+        <!-- ступени -->
+        <rect x="-30" y="486" width="860" height="14" fill="#13294f"/>
+        <rect x="-60" y="500" width="920" height="14" fill="#0f2245"/>
+    </g>
+
+    <!-- Земля -->
+    <rect y="944" width="1920" height="136" fill="url(#ground)"/>
+
+    <!-- Дорожка, ведущая «в никуда» -->
+    <path d="M900 944 L1020 944 L1240 1080 L680 1080 Z" fill="#163063" opacity="0.8"/>
+    <g fill="#ffd36b" opacity="0.7">
+        <rect x="955" y="960" width="10" height="20"/>
+        <rect x="953" y="1000" width="14" height="28"/>
+        <rect x="950" y="1046" width="20" height="34"/>
+    </g>
+
+    <!-- Указатель «тупик» -->
+    <g transform="translate(1270 820)">
+        <rect x="-5" y="0" width="10" height="130" fill="#7e8da6"/>
+        <rect x="-50" y="-60" width="100" height="70" rx="6" fill="#1565c0" stroke="#ffffff" stroke-width="4"/>
+        <rect x="-8" y="-46" width="16" height="44" fill="#ffffff"/>
+        <rect x="-26" y="-50" width="52" height="12" fill="#d32f2f"/>
+    </g>
+</svg>

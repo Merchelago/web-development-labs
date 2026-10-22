@@ -1,0 +1,125 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    /* вместо синего фона — фотография рабочего стола с затемнением */
+    background:
+        linear-gradient(rgba(40, 24, 10, 0.45), rgba(40, 24, 10, 0.45)),
+        url("../img/todo_bg.jpg") center / cover no-repeat;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+.container {
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 250, 242, 0.93);
+    border-radius: 16px;
+    min-width: 450px;
+    position: absolute;
+    min-height: 100px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    padding-top: 24px;
+}
+
+h1 {
+    text-align: center;
+    color: #5a3a1e;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+#newtask {
+    position: relative;
+    padding: 20px 20px 10px;
+    display: flex;
+    gap: 10px;
+}
+
+#newtask input {
+    flex: 1;                     /* поле ввода стало шире — кнопка теперь маленькая */
+    height: 48px;
+    padding: 12px 14px;
+    color: #3b2a1a;
+    font-weight: 500;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    border: 2px solid #e2cfb6;
+    background: #ffffff;
+}
+
+#newtask input:focus {
+    outline: none;
+    border-color: #d9822b;
+}
+
+#newtask button {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9822b;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+
+#newtask button:hover {
+    background-color: #b8661a;
+}
+
+#tasks {
+    border-radius: 0 0 16px 16px;
+    width: 100%;
+    position: relative;
+    padding: 10px 20px 24px;
+}
+
+.task {
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ecd9c0;
+    border-left: 5px solid #d9822b;
+    background-color: #ffffff;
+    height: 52px;
+    margin-bottom: 8px;
+    padding: 5px 8px 5px 14px;
+    display: flex;
+}
+
+.task span {
+    font-size: 15px;
+    font-weight: 400;
+    color: #3b2a1a;
+}
+
+.task button {
+    background-color: transparent;
+    color: #c0392b;
+    border: none;
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.task button:hover {
+    background-color: #fbe3df;
+}
