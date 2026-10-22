@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач — клиент Flask API</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <h1>Список задач</h1>
+        <span class="api-state" id="apiState">проверка API…</span>
+    </header>
+
+    <main class="layout">
+        <section class="stats" id="stats" aria-label="Статистика"></section>
+
+        <section class="panel">
+            <h2>Новая задача</h2>
+            <form id="taskForm" novalidate>
+                <input name="title" placeholder="Название задачи *" maxlength="150">
+                <textarea name="description" rows="2" placeholder="Описание"></textarea>
+                <div class="row">
+                    <select name="category_id" id="formCategory"></select>
+                    <select name="priority">
+                        <option value="low">Низкий</option>
+                        <option value="medium" selected>Средний</option>
+                        <option value="high">Высокий</option>
+                    </select>
+                    <input name="due_date" type="date">
+                    <button type="submit">Добавить</button>
+                </div>
+                <div class="form-error" id="formError" role="alert"></div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="filters">
+                <input id="q" type="search" placeholder="Поиск по названию">
+                <select id="fStatus"><option value="">Все статусы</option></select>
+                <select id="fCategory"><option value="">Все категории</option></select>
+                <select id="fPriority">
+                    <option value="">Любой приоритет</option>
+                    <option value="high">Высокий</option>
+                    <option value="medium">Средний</option>
+                    <option value="low">Низкий</option>
+                </select>
+                <select id="sort">
+                    <option value="created_at:desc">Сначала новые</option>
+                    <option value="due_date:asc">По сроку</option>
+                    <option value="priority:desc">По приоритету</option>
+                    <option value="title:asc">По названию</option>
+                </select>
+            </div>
+            <p class="muted" id="counter"></p>
+            <ul class="tasks" id="tasks"></ul>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
