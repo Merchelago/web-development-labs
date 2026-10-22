@@ -1,0 +1,304 @@
+/* ВолгаТех-2026 — собственные стили поверх Bootstrap 5 */
+
+:root {
+    --bs-primary: #2563eb;
+    --bs-primary-rgb: 37, 99, 235;
+    --bs-link-color: #2563eb;
+    --bs-link-color-rgb: 37, 99, 235;
+    --brand-dark: #0f1b3d;
+    --brand-soft: #eef3ff;
+    --bs-body-font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+    background: #f6f8fc;
+    padding-top: 66px; /* высота fixed-top навигации */
+}
+
+html {
+    scroll-padding-top: 80px; /* якоря не прячутся под навигацией */
+}
+
+/* кнопки primary в фирменном цвете */
+.btn-primary {
+    --bs-btn-bg: #2563eb;
+    --bs-btn-border-color: #2563eb;
+    --bs-btn-hover-bg: #1d4ed8;
+    --bs-btn-hover-border-color: #1d4ed8;
+    --bs-btn-active-bg: #1e40af;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #2563eb;
+    --bs-btn-border-color: #2563eb;
+    --bs-btn-hover-bg: #2563eb;
+    --bs-btn-hover-border-color: #2563eb;
+}
+
+/* ---------- навигация ---------- */
+.navbar .nav-link {
+    font-weight: 600;
+    color: #334155;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+    color: var(--bs-primary);
+}
+
+/* ---------- первый экран ---------- */
+.hero {
+    background:
+        linear-gradient(100deg, rgba(10, 20, 50, .92) 0%, rgba(10, 20, 50, .75) 45%, rgba(10, 20, 50, .25) 100%),
+        url("../images/hero.jpg") center / cover no-repeat;
+    padding: 6rem 0 8rem;
+}
+
+.text-white-75 {
+    color: rgba(255, 255, 255, .78);
+}
+
+/* ---------- ключевые показатели ---------- */
+.stats-wrap {
+    margin-top: -4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--brand-soft);
+    color: var(--bs-primary);
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+@media (min-width: 768px) {
+    .stat-icon {
+        margin-bottom: 0;
+    }
+}
+
+/* ---------- заголовки разделов ---------- */
+.section-title {
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: .5rem;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--bs-primary);
+}
+
+/* ---------- блок «О конференции» ---------- */
+.about-media img {
+    aspect-ratio: 4 / 3;
+    transition: transform .4s ease;
+}
+
+.about-media:hover img {
+    transform: scale(1.04);
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 72px;
+    height: 72px;
+    margin: -36px 0 0 -36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .92);
+    color: var(--bs-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+/* ---------- секции ---------- */
+.section-card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.section-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .75rem 1.5rem rgba(15, 27, 61, .12) !important;
+}
+
+/* ---------- программа ---------- */
+.day-tabs .nav-link {
+    background: #e9eefb;
+    color: #1e293b;
+    border-radius: .75rem;
+    margin: 0 .25rem;
+    line-height: 1.2;
+}
+
+.day-tabs .nav-link.active {
+    background: var(--bs-primary);
+    color: #fff;
+}
+
+.program-accordion .accordion-button {
+    gap: 1rem;
+}
+
+.program-accordion .accordion-button:not(.collapsed) {
+    background: var(--brand-soft);
+    color: #0f172a;
+}
+
+.program-accordion .time {
+    min-width: 108px;
+    font-variant-numeric: tabular-nums;
+    color: #475569;
+    font-size: .9rem;
+}
+
+.talk-time {
+    min-width: 46px;
+    font-weight: 700;
+    color: var(--bs-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.speaker-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    white-space: nowrap;
+    font-size: .85rem;
+    color: #475569;
+}
+
+.speaker-mini img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* ---------- спикеры ---------- */
+.speaker-photo {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 18px rgba(15, 27, 61, .15);
+}
+
+.speaker-card {
+    transition: transform .2s ease;
+}
+
+.speaker-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ---------- боковая колонка ---------- */
+.news-list img {
+    width: 84px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.subscribe-icon {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand-soft);
+    color: var(--bs-primary);
+    font-size: 1.3rem;
+}
+
+/* ---------- призыв к действию ---------- */
+.cta {
+    background: linear-gradient(110deg, #1e3a8a 0%, #2563eb 55%, #38bdf8 100%);
+    box-shadow: 0 1rem 2.5rem rgba(37, 99, 235, .3);
+}
+
+/* ---------- подвал ---------- */
+.footer {
+    background: var(--brand-dark);
+}
+
+.footer a {
+    color: rgba(255, 255, 255, .6);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+.footer li {
+    margin-bottom: .35rem;
+}
+
+/* ---------- галерея ---------- */
+.gallery-img {
+    height: min(70vh, 620px);
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, .45);
+    border-radius: .75rem;
+    padding: .75rem 1rem;
+}
+
+/* ---------- мобильные экраны ---------- */
+@media (max-width: 575.98px) {
+    .hero {
+        padding: 3.5rem 0 6rem;
+    }
+
+    .hero .display-4 {
+        font-size: 2rem;
+    }
+
+    .program-accordion .accordion-button {
+        flex-wrap: wrap;
+        gap: .25rem .75rem;
+    }
+
+    .program-accordion .time {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .list-group-item.d-flex {
+        flex-wrap: wrap;
+    }
+
+    .speaker-mini {
+        margin-left: 62px;
+    }
+
+    .day-tabs .nav-link {
+        margin: 0 .15rem;
+        padding: .5rem .25rem;
+    }
+}
+
+#regAlertBox:not(:empty) {
+    margin-bottom: 1rem;
+}

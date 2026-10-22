@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ВолгаТех-2026 — международная научно-практическая конференция «Цифровые технологии и интеллектуальные системы», 26–28 ноября 2026 года, ПГТУ, Йошкар-Ола.">
+    <meta name="author" content="Ананьев Александр Николаевич">
+    <title>ВолгаТех-2026 — научная конференция</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+    <!-- Bootstrap 5 и иконки Bootstrap Icons (CDN jsDelivr) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-root-margin="0px 0px -55%" data-bs-smooth-scroll="true" tabindex="0">
+
+<!-- ===================== НАВИГАЦИЯ ===================== -->
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#top">
+            <img src="images/logo.svg" alt="" width="34" height="34">
+            ВолгаТех <span class="text-primary">2026</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto me-lg-3 mb-3 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#about">О конференции</a></li>
+                <li class="nav-item"><a class="nav-link" href="#program">Программа</a></li>
+                <li class="nav-item"><a class="nav-link" href="#speakers">Спикеры</a></li>
+                <li class="nav-item"><a class="nav-link" href="#news">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Участникам</a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li><a class="dropdown-item" href="#sections"><i class="bi bi-diagram-3 me-2"></i>Научные секции</a></li>
+                        <li><a class="dropdown-item" href="#dates"><i class="bi bi-calendar-check me-2"></i>Важные даты</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#rulesModal"><i class="bi bi-file-earmark-text me-2"></i>Условия участия</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="files/programma-volgatech-2026.pdf" download><i class="bi bi-download me-2"></i>Программа (PDF)</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#register" class="btn btn-primary px-4">Регистрация</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ===================== ПЕРВЫЙ ЭКРАН ===================== -->
+<header id="top" class="hero text-white">
+    <div class="container position-relative">
+        <div class="row">
+            <div class="col-lg-8 col-xl-7">
+                <span class="badge rounded-pill bg-primary bg-opacity-75 text-uppercase text-wrap text-start lh-base fw-semibold mb-3 px-3 py-2">Международная научно-практическая конференция</span>
+                <h1 class="display-4 fw-bold lh-sm mb-3">Цифровые технологии и интеллектуальные системы</h1>
+                <p class="lead mb-4 text-white-75">Три дня пленарных докладов, научных секций, мастер-классов и нетворкинга с исследователями и разработчиками из вузов и ИТ-компаний России.</p>
+                <ul class="list-unstyled d-flex flex-wrap gap-4 mb-4 fs-5">
+                    <li><i class="bi bi-calendar-event me-2"></i>26–28 ноября 2026</li>
+                    <li><i class="bi bi-geo-alt me-2"></i>Йошкар-Ола, ПГТУ</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#register" class="btn btn-primary btn-lg px-4">Зарегистрироваться</a>
+                    <a href="#about" class="btn btn-outline-light btn-lg px-4">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ===================== КЛЮЧЕВЫЕ ПОКАЗАТЕЛИ ===================== -->
+<section class="container stats-wrap" aria-labelledby="statsTitle">
+    <h2 id="statsTitle" class="visually-hidden">Ключевые показатели</h2>
+    <div class="card border-0 shadow rounded-4">
+        <div class="card-body py-4">
+            <div class="row row-cols-2 row-cols-md-4 g-4 text-center text-md-start">
+                <div class="col">
+                    <div class="d-md-flex align-items-center gap-3">
+                        <span class="stat-icon"><i class="bi bi-people"></i></span>
+                        <div><div class="fs-2 fw-bold lh-1">600+</div><div class="text-secondary small">участников</div></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-md-flex align-items-center gap-3">
+                        <span class="stat-icon"><i class="bi bi-mic"></i></span>
+                        <div><div class="fs-2 fw-bold lh-1">85</div><div class="text-secondary small">докладов</div></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-md-flex align-items-center gap-3">
+                        <span class="stat-icon"><i class="bi bi-diagram-3"></i></span>
+                        <div><div class="fs-2 fw-bold lh-1">6</div><div class="text-secondary small">научных секций</div></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-md-flex align-items-center gap-3">
+                        <span class="stat-icon"><i class="bi bi-calendar3"></i></span>
+                        <div><div class="fs-2 fw-bold lh-1">3</div><div class="text-secondary small">дня программы</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== ОСНОВНОЕ СОДЕРЖИМОЕ + БОКОВАЯ КОЛОНКА ===================== -->
+<main class="container py-5">
+    <div class="row g-4 g-lg-5">
+
+        <!-- Основная колонка -->
+        <div class="col-lg-8">
+
+            <!-- О конференции -->
+            <section id="about" class="mb-5">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="section-title">О конференции</h2>
+                        <p>ВолгаТех-2026 — ежегодная площадка, где учёные, преподаватели, аспиранты и практики ИТ-индустрии обсуждают, как искусственный интеллект, веб-технологии и промышленный интернет вещей меняют экономику и образование.</p>
+                        <p class="mb-4">Организатор — Поволжский государственный технологический университет. Материалы докладов публикуются в сборнике трудов конференции с индексацией в РИНЦ.</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#aboutMore" aria-expanded="false" aria-controls="aboutMore">
+                            Узнать больше
+                        </button>
+                        <div class="collapse mt-3" id="aboutMore">
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Пленарное заседание с ведущими экспертами</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>6 научных секций и круглый стол для молодых учёных</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Конкурс студенческих докладов с дипломами победителям</li>
+                                <li><i class="bi bi-check2-circle text-primary me-2"></i>Дистанционное участие для иногородних докладчиков</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="about-media d-block position-relative rounded-4 overflow-hidden shadow"
+                           data-bs-toggle="modal" data-bs-target="#galleryModal" aria-label="Открыть фотогалерею">
+                            <img src="images/venue-pgtu.jpg" class="img-fluid w-100 object-fit-cover" alt="Главный корпус ПГТУ — площадка конференции">
+                            <span class="play-btn"><i class="bi bi-images"></i></span>
+                            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 start-0 m-3">Фотогалерея</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Научные секции -->
+            <section id="sections" class="mb-5">
+                <h2 class="section-title">Научные секции</h2>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm section-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <i class="bi bi-cpu fs-3 text-primary"></i><span class="badge text-bg-primary">Секция 1</span>
+                                </div>
+                                <h3 class="h6 fw-bold">Искусственный интеллект и анализ данных</h3>
+                                <div class="small text-secondary mb-1">Заполнено 82%</div>
+                                <div class="progress" role="progressbar" aria-label="Заполненность секции 1" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="height: 6px">
+                                    <div class="progress-bar" style="width: 82%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm section-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <i class="bi bi-code-slash fs-3 text-primary"></i><span class="badge text-bg-primary">Секция 2</span>
+                                </div>
+                                <h3 class="h6 fw-bold">Веб-технологии и разработка ПО</h3>
+                                <div class="small text-secondary mb-1">Заполнено 74%</div>
+                                <div class="progress" role="progressbar" aria-label="Заполненность секции 2" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="height: 6px">
+                                    <div class="progress-bar" style="width: 74%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm section-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <i class="bi bi-shield-lock fs-3 text-primary"></i><span class="badge text-bg-primary">Секция 3</span>
+                                </div>
+                                <h3 class="h6 fw-bold">Информационная безопасность</h3>
+                                <div class="small text-secondary mb-1">Заполнено 61%</div>
+                                <div class="progress" role="progressbar" aria-label="Заполненность секции 3" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100" style="height: 6px">
+                                    <div class="progress-bar" style="width: 61%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm section-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <i class="bi bi-router fs-3 text-primary"></i><span class="badge text-bg-primary">Секция 4</span>
+                                </div>
+                                <h3 class="h6 fw-bold">Интернет вещей и встраиваемые системы</h3>
+                                <div class="small text-secondary mb-1">Заполнено 55%</div>
+                                <div class="progress" role="progressbar" aria-label="Заполненность секции 4" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="height: 6px">
+                                    <div class="progress-bar" style="width: 55%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm section-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <i class="bi bi-boxes fs-3 text-primary"></i><span class="badge text-bg-primary">Секция 5</span>
+                                </div>
+                                <h3 class="h6 fw-bold">Цифровые двойники в промышленности</h3>
+                                <div class="small text-secondary mb-1">Заполнено 47%</div>
+                                <div class="progress" role="progressbar" aria-label="Заполненность секции 5" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="height: 6px">
+                                    <div class="progress-bar" style="width: 47%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm section-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <i class="bi bi-mortarboard fs-3 text-primary"></i><span class="badge text-bg-primary">Секция 6</span>
+                                </div>
+                                <h3 class="h6 fw-bold">Цифровое образование</h3>
+                                <div class="small text-secondary mb-1">Заполнено 68%</div>
+                                <div class="progress" role="progressbar" aria-label="Заполненность секции 6" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="height: 6px">
+                                    <div class="progress-bar" style="width: 68%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Программа -->
+            <section id="program" class="mb-5">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+                    <h2 class="section-title mb-0">Программа мероприятия</h2>
+                    <a href="files/programma-volgatech-2026.pdf" class="btn btn-outline-primary btn-sm" download>
+                        <i class="bi bi-download me-1"></i>Скачать программу
+                    </a>
+                </div>
+
+                <ul class="nav nav-pills nav-fill day-tabs mb-3" id="dayTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="day1-tab" data-bs-toggle="tab" data-bs-target="#day1" type="button" role="tab" aria-controls="day1" aria-selected="true">
+                            <span class="d-block fw-bold">День 1</span><small>26 ноября</small>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="day2-tab" data-bs-toggle="tab" data-bs-target="#day2" type="button" role="tab" aria-controls="day2" aria-selected="false">
+                            <span class="d-block fw-bold">День 2</span><small>27 ноября</small>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="day3-tab" data-bs-toggle="tab" data-bs-target="#day3" type="button" role="tab" aria-controls="day3" aria-selected="false">
+                            <span class="d-block fw-bold">День 3</span><small>28 ноября</small>
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="dayTabsContent">
+                    <!-- День 1 -->
+                    <div class="tab-pane fade show active" id="day1" role="tabpanel" aria-labelledby="day1-tab" tabindex="0">
+                        <div class="accordion program-accordion" id="accDay1">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#d1s1" aria-expanded="true" aria-controls="d1s1">
+                                        <span class="time">10:00 – 12:30</span>
+                                        <span class="flex-grow-1 fw-semibold">Открытие и пленарное заседание</span>
+                                        <span class="badge text-bg-warning d-none d-sm-inline">Пленарное</span>
+                                    </button>
+                                </h3>
+                                <div id="d1s1" class="accordion-collapse collapse show" data-bs-parent="#accDay1">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Актовый зал, главный корпус · модератор — Ирина Белова</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">10:00</span>
+                                                <span class="flex-grow-1">Приветственное слово оргкомитета</span>
+                                            </li>
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">10:30</span>
+                                                <span class="flex-grow-1">Большие языковые модели в инженерном образовании</span>
+                                                <span class="speaker-mini"><img src="images/speakers/smirnova.svg" alt="">Анна Смирнова</span>
+                                            </li>
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">11:20</span>
+                                                <span class="flex-grow-1">Компьютерное зрение на производстве: от прототипа к внедрению</span>
+                                                <span class="speaker-mini"><img src="images/speakers/kovalev.svg" alt="">Дмитрий Ковалёв</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d1s2" aria-expanded="false" aria-controls="d1s2">
+                                        <span class="time">14:00 – 17:00</span>
+                                        <span class="flex-grow-1 fw-semibold">Искусственный интеллект и анализ данных</span>
+                                        <span class="badge text-bg-primary d-none d-sm-inline">Секция 1</span>
+                                    </button>
+                                </h3>
+                                <div id="d1s2" class="accordion-collapse collapse" data-bs-parent="#accDay1">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Ауд. 312 · руководитель секции — Павел Егоров</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">14:00</span>
+                                                <span class="flex-grow-1">Прогнозирование спроса методами градиентного бустинга</span>
+                                                <span class="speaker-mini"><img src="images/speakers/egorov.svg" alt="">Павел Егоров</span>
+                                            </li>
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">14:40</span>
+                                                <span class="flex-grow-1">Разметка данных для задач детекции: качество против количества</span>
+                                                <span class="speaker-mini"><img src="images/speakers/kovalev.svg" alt="">Дмитрий Ковалёв</span>
+                                            </li>
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">15:40</span>
+                                                <span class="flex-grow-1">Конкурс студенческих докладов: 6 выступлений по 10 минут</span>
+                                                <span class="badge text-bg-success">Студенты</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- День 2 -->
+                    <div class="tab-pane fade" id="day2" role="tabpanel" aria-labelledby="day2-tab" tabindex="0">
+                        <div class="accordion program-accordion" id="accDay2">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#d2s1" aria-expanded="true" aria-controls="d2s1">
+                                        <span class="time">10:00 – 13:00</span>
+                                        <span class="flex-grow-1 fw-semibold">Веб-технологии и разработка ПО</span>
+                                        <span class="badge text-bg-primary d-none d-sm-inline">Секция 2</span>
+                                    </button>
+                                </h3>
+                                <div id="d2s1" class="accordion-collapse collapse show" data-bs-parent="#accDay2">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Ауд. 405 · руководитель секции — Мария Орлова</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">10:00</span>
+                                                <span class="flex-grow-1">Современный веб: React, PWA и доступность интерфейсов</span>
+                                                <span class="speaker-mini"><img src="images/speakers/orlova.svg" alt="">Мария Орлова</span>
+                                            </li>
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">11:00</span>
+                                                <span class="flex-grow-1">REST или GraphQL: выбор API для учебных информационных систем</span>
+                                                <span class="speaker-mini"><img src="images/speakers/volkov.svg" alt="">Сергей Волков</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d2s2" aria-expanded="false" aria-controls="d2s2">
+                                        <span class="time">14:00 – 16:00</span>
+                                        <span class="flex-grow-1 fw-semibold">Информационная безопасность</span>
+                                        <span class="badge text-bg-primary d-none d-sm-inline">Секция 3</span>
+                                    </button>
+                                </h3>
+                                <div id="d2s2" class="accordion-collapse collapse" data-bs-parent="#accDay2">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Ауд. 312 · руководитель секции — Алексей Петров</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">14:00</span>
+                                                <span class="flex-grow-1">Кибербезопасность веб-приложений в 2026 году</span>
+                                                <span class="speaker-mini"><img src="images/speakers/petrov.svg" alt="">Алексей Петров</span>
+                                            </li>
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">15:00</span>
+                                                <span class="flex-grow-1">Практикум: поиск уязвимостей OWASP Top 10 в учебном приложении</span>
+                                                <span class="badge text-bg-info">Мастер-класс</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d2s3" aria-expanded="false" aria-controls="d2s3">
+                                        <span class="time">16:30 – 18:00</span>
+                                        <span class="flex-grow-1 fw-semibold">Интернет вещей и встраиваемые системы</span>
+                                        <span class="badge text-bg-primary d-none d-sm-inline">Секция 4</span>
+                                    </button>
+                                </h3>
+                                <div id="d2s3" class="accordion-collapse collapse" data-bs-parent="#accDay2">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Ауд. 208 · руководитель секции — Сергей Волков</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">16:30</span>
+                                                <span class="flex-grow-1">Промышленный интернет вещей: сбор телеметрии на краю сети</span>
+                                                <span class="speaker-mini"><img src="images/speakers/volkov.svg" alt="">Сергей Волков</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- День 3 -->
+                    <div class="tab-pane fade" id="day3" role="tabpanel" aria-labelledby="day3-tab" tabindex="0">
+                        <div class="accordion program-accordion" id="accDay3">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#d3s1" aria-expanded="true" aria-controls="d3s1">
+                                        <span class="time">10:00 – 12:30</span>
+                                        <span class="flex-grow-1 fw-semibold">Цифровые двойники в промышленности</span>
+                                        <span class="badge text-bg-primary d-none d-sm-inline">Секция 5</span>
+                                    </button>
+                                </h3>
+                                <div id="d3s1" class="accordion-collapse collapse show" data-bs-parent="#accDay3">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Ауд. 312 · руководитель секции — Ирина Белова</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">10:00</span>
+                                                <span class="flex-grow-1">Цифровые двойники лесозаготовительной техники</span>
+                                                <span class="speaker-mini"><img src="images/speakers/belova.svg" alt="">Ирина Белова</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d3s2" aria-expanded="false" aria-controls="d3s2">
+                                        <span class="time">13:30 – 15:30</span>
+                                        <span class="flex-grow-1 fw-semibold">Цифровое образование</span>
+                                        <span class="badge text-bg-primary d-none d-sm-inline">Секция 6</span>
+                                    </button>
+                                </h3>
+                                <div id="d3s2" class="accordion-collapse collapse" data-bs-parent="#accDay3">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Ауд. 405 · руководитель секции — Ольга Николаева</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex gap-3 align-items-center px-0">
+                                                <span class="talk-time">13:30</span>
+                                                <span class="flex-grow-1">Адаптивные платформы онлайн-обучения</span>
+                                                <span class="speaker-mini"><img src="images/speakers/nikolaeva.svg" alt="">Ольга Николаева</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d3s3" aria-expanded="false" aria-controls="d3s3">
+                                        <span class="time">16:00 – 17:30</span>
+                                        <span class="flex-grow-1 fw-semibold">Круглый стол и закрытие конференции</span>
+                                        <span class="badge text-bg-warning d-none d-sm-inline">Пленарное</span>
+                                    </button>
+                                </h3>
+                                <div id="d3s3" class="accordion-collapse collapse" data-bs-parent="#accDay3">
+                                    <div class="accordion-body">
+                                        <p class="small text-secondary mb-2"><i class="bi bi-geo me-1"></i>Актовый зал, главный корпус</p>
+                                        <p class="mb-0">Подведение итогов, награждение победителей конкурса студенческих докладов, обсуждение резолюции конференции.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Спикеры -->
+            <section id="speakers" class="mb-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="section-title mb-0">Наши спикеры</h2>
+                    <a class="link-primary fw-semibold text-decoration-none" data-bs-toggle="collapse" href="#moreSpeakers" role="button" aria-expanded="false" aria-controls="moreSpeakers">
+                        Все спикеры <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="row row-cols-2 row-cols-md-4 g-3">
+                    <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                            <img src="images/speakers/smirnova.svg" class="speaker-photo mx-auto mt-3" alt="Анна Смирнова">
+                            <div class="card-body">
+                                <h3 class="h6 fw-bold mb-1">Анна Смирнова</h3>
+                                <p class="small text-secondary mb-2">д.т.н., профессор, НИИ интеллектуальных систем</p>
+                                <span class="badge rounded-pill text-bg-light border">LLM в образовании</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-3">
+                                <a href="#" class="text-secondary me-2" data-bs-toggle="tooltip" data-bs-title="Telegram"><i class="bi bi-telegram"></i></a>
+                                <a href="#" class="text-secondary" data-bs-toggle="tooltip" data-bs-title="Почта"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                            <img src="images/speakers/kovalev.svg" class="speaker-photo mx-auto mt-3" alt="Дмитрий Ковалёв">
+                            <div class="card-body">
+                                <h3 class="h6 fw-bold mb-1">Дмитрий Ковалёв</h3>
+                                <p class="small text-secondary mb-2">технический директор, «Нейрон Лаб»</p>
+                                <span class="badge rounded-pill text-bg-light border">Компьютерное зрение</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-3">
+                                <a href="#" class="text-secondary me-2" data-bs-toggle="tooltip" data-bs-title="Telegram"><i class="bi bi-telegram"></i></a>
+                                <a href="#" class="text-secondary" data-bs-toggle="tooltip" data-bs-title="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                            <img src="images/speakers/orlova.svg" class="speaker-photo mx-auto mt-3" alt="Мария Орлова">
+                            <div class="card-body">
+                                <h3 class="h6 fw-bold mb-1">Мария Орлова</h3>
+                                <p class="small text-secondary mb-2">ведущий frontend-разработчик, «Волга Софт»</p>
+                                <span class="badge rounded-pill text-bg-light border">React и PWA</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-3">
+                                <a href="#" class="text-secondary me-2" data-bs-toggle="tooltip" data-bs-title="Telegram"><i class="bi bi-telegram"></i></a>
+                                <a href="#" class="text-secondary" data-bs-toggle="tooltip" data-bs-title="Почта"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                            <img src="images/speakers/petrov.svg" class="speaker-photo mx-auto mt-3" alt="Алексей Петров">
+                            <div class="card-body">
+                                <h3 class="h6 fw-bold mb-1">Алексей Петров</h3>
+                                <p class="small text-secondary mb-2">руководитель центра мониторинга, «Цифровой щит»</p>
+                                <span class="badge rounded-pill text-bg-light border">Кибербезопасность</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-3">
+                                <a href="#" class="text-secondary me-2" data-bs-toggle="tooltip" data-bs-title="Telegram"><i class="bi bi-telegram"></i></a>
+                                <a href="#" class="text-secondary" data-bs-toggle="tooltip" data-bs-title="YouTube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- скрытые карточки — раскрываются через collapse по ссылке «Все спикеры» -->
+                <div class="collapse" id="moreSpeakers">
+                    <div class="row row-cols-2 row-cols-md-4 g-3 mt-0">
+                        <div class="col">
+                            <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                                <img src="images/speakers/belova.svg" class="speaker-photo mx-auto mt-3" alt="Ирина Белова">
+                                <div class="card-body">
+                                    <h3 class="h6 fw-bold mb-1">Ирина Белова</h3>
+                                    <p class="small text-secondary mb-2">к.т.н., доцент, председатель программного комитета</p>
+                                    <span class="badge rounded-pill text-bg-light border">Цифровые двойники</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                                <img src="images/speakers/volkov.svg" class="speaker-photo mx-auto mt-3" alt="Сергей Волков">
+                                <div class="card-body">
+                                    <h3 class="h6 fw-bold mb-1">Сергей Волков</h3>
+                                    <p class="small text-secondary mb-2">архитектор IoT-платформ, «Промсеть»</p>
+                                    <span class="badge rounded-pill text-bg-light border">Интернет вещей</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                                <img src="images/speakers/nikolaeva.svg" class="speaker-photo mx-auto mt-3" alt="Ольга Николаева">
+                                <div class="card-body">
+                                    <h3 class="h6 fw-bold mb-1">Ольга Николаева</h3>
+                                    <p class="small text-secondary mb-2">к.п.н., методист онлайн-обучения</p>
+                                    <span class="badge rounded-pill text-bg-light border">EdTech</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 text-center border-0 shadow-sm speaker-card">
+                                <img src="images/speakers/egorov.svg" class="speaker-photo mx-auto mt-3" alt="Павел Егоров">
+                                <div class="card-body">
+                                    <h3 class="h6 fw-bold mb-1">Павел Егоров</h3>
+                                    <p class="small text-secondary mb-2">ведущий исследователь данных, «Аналитика Плюс»</p>
+                                    <span class="badge rounded-pill text-bg-light border">Машинное обучение</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Регистрация -->
+            <section id="register" class="mb-4">
+                <h2 class="section-title">Регистрация участника</h2>
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body p-4">
+                        <div id="regAlertBox" aria-live="polite"></div>
+                        <form id="regForm" class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="regName" placeholder="Иванов Иван Иванович" required minlength="5">
+                                    <label for="regName">ФИО</label>
+                                    <div class="invalid-feedback">Укажите фамилию, имя и отчество.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="regEmail" placeholder="name@example.ru" required>
+                                    <label for="regEmail">Электронная почта</label>
+                                    <div class="invalid-feedback">Введите корректный адрес электронной почты.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="regOrg" placeholder="Организация" required>
+                                    <label for="regOrg">Организация (вуз, компания)</label>
+                                    <div class="invalid-feedback">Укажите организацию.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="regSection" required>
+                                        <option value="" selected disabled>Выберите секцию…</option>
+                                        <option>Секция 1. Искусственный интеллект и анализ данных</option>
+                                        <option>Секция 2. Веб-технологии и разработка ПО</option>
+                                        <option>Секция 3. Информационная безопасность</option>
+                                        <option>Секция 4. Интернет вещей и встраиваемые системы</option>
+                                        <option>Секция 5. Цифровые двойники в промышленности</option>
+                                        <option>Секция 6. Цифровое образование</option>
+                                    </select>
+                                    <label for="regSection">Научная секция</label>
+                                    <div class="invalid-feedback">Выберите секцию.</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <span class="form-label d-block mb-2">Формат участия</span>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="regFormat" id="fmtSpeaker" value="speaker" checked>
+                                    <label class="form-check-label" for="fmtSpeaker">Очно, с докладом</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="regFormat" id="fmtListener" value="listener">
+                                    <label class="form-check-label" for="fmtListener">Очно, слушатель</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="regFormat" id="fmtOnline" value="online">
+                                    <label class="form-check-label" for="fmtOnline">Дистанционно</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="regTopic" placeholder="Тема доклада" style="height: 90px"></textarea>
+                                    <label for="regTopic">Тема доклада (для докладчиков)</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="regAgree" required>
+                                    <label class="form-check-label" for="regAgree">
+                                        Я ознакомлен(а) с <a href="#" data-bs-toggle="modal" data-bs-target="#rulesModal">условиями участия</a> и согласен(на) на обработку персональных данных
+                                    </label>
+                                    <div class="invalid-feedback">Необходимо согласие с условиями участия.</div>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex flex-wrap gap-2">
+                                <button class="btn btn-primary px-4" type="submit"><i class="bi bi-send me-2"></i>Отправить заявку</button>
+                                <button class="btn btn-outline-secondary" type="reset">Очистить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Боковая колонка -->
+        <aside class="col-lg-4">
+            <div class="d-flex flex-column gap-4">
+
+                <!-- Место проведения -->
+                <div class="card border-0 shadow-sm rounded-4" id="contacts">
+                    <div class="card-body">
+                        <h2 class="h5 fw-bold mb-3">Место проведения</h2>
+                        <div class="ratio ratio-4x3 rounded-3 overflow-hidden mb-3">
+                            <iframe title="Карта: ПГТУ, Йошкар-Ола, пл. Ленина, 3" loading="lazy"
+                                    src="https://www.openstreetmap.org/export/embed.html?bbox=47.8850%2C56.6280%2C47.8990%2C56.6330&amp;layer=mapnik&amp;marker=56.63050%2C47.89210"></iframe>
+                        </div>
+                        <p class="fw-semibold mb-1">Главный корпус ПГТУ</p>
+                        <p class="small text-secondary mb-3">Йошкар-Ола, пл. Ленина, 3</p>
+                        <a class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener"
+                           href="https://www.openstreetmap.org/?mlat=56.63050&amp;mlon=47.89210#map=17/56.63050/47.89210">
+                            <i class="bi bi-map me-1"></i>Показать на карте
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Новости -->
+                <div class="card border-0 shadow-sm rounded-4" id="news">
+                    <div class="card-body">
+                        <h2 class="h5 fw-bold mb-3">Новости</h2>
+                        <div class="list-group list-group-flush news-list">
+                            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 px-0">
+                                <img src="images/news-1.jpg" alt="" class="rounded-3 flex-shrink-0">
+                                <span>
+                                    <small class="text-secondary d-block">20 октября 2026 <span class="badge text-bg-danger ms-1">Новое</span></small>
+                                    <span class="fw-semibold">Приём тезисов продлён до 1 ноября</span>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 px-0">
+                                <img src="images/news-2.jpg" alt="" class="rounded-3 flex-shrink-0">
+                                <span>
+                                    <small class="text-secondary d-block">15 октября 2026</small>
+                                    <span class="fw-semibold">Опубликована предварительная программа</span>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 px-0">
+                                <img src="images/news-3.jpg" alt="" class="rounded-3 flex-shrink-0">
+                                <span>
+                                    <small class="text-secondary d-block">1 сентября 2026</small>
+                                    <span class="fw-semibold">Открыта регистрация участников ВолгаТех-2026</span>
+                                </span>
+                            </a>
+                        </div>
+                        <a href="#" class="d-inline-block mt-2 fw-semibold text-decoration-none">Все новости <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Важные даты -->
+                <div class="card border-0 shadow-sm rounded-4" id="dates">
+                    <div class="card-body">
+                        <h2 class="h5 fw-bold mb-3">Важные даты</h2>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between px-0">Приём тезисов <span class="badge text-bg-warning">до 1 ноября</span></li>
+                            <li class="list-group-item d-flex justify-content-between px-0">Регистрация участников <span class="badge text-bg-primary">до 20 ноября</span></li>
+                            <li class="list-group-item d-flex justify-content-between px-0">Конференция <span class="badge text-bg-success">26–28 ноября</span></li>
+                            <li class="list-group-item d-flex justify-content-between px-0">Выход сборника трудов <span class="badge text-bg-secondary">февраль 2027</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Подписка -->
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body">
+                        <span class="subscribe-icon mb-2"><i class="bi bi-envelope-paper"></i></span>
+                        <h2 class="h5 fw-bold">Будьте в курсе</h2>
+                        <p class="small text-secondary">Подпишитесь на рассылку, чтобы получать новости о конференции.</p>
+                        <form id="subscribeForm" class="needs-validation" novalidate>
+                            <div class="input-group has-validation">
+                                <input type="email" class="form-control" placeholder="Ваш e-mail" aria-label="Ваш e-mail" required>
+                                <button class="btn btn-primary" type="submit">Подписаться</button>
+                                <div class="invalid-feedback">Введите адрес электронной почты.</div>
+                            </div>
+                        </form>
+                        <div id="subscribeAlertBox" class="mt-3" aria-live="polite"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<!-- ===================== ПРИЗЫВ К ДЕЙСТВИЮ ===================== -->
+<section class="container mb-5">
+    <div class="cta rounded-4 p-4 p-md-5 text-white d-md-flex align-items-center justify-content-between gap-4">
+        <div class="mb-3 mb-md-0">
+            <h2 class="h3 fw-bold mb-1">Присоединяйтесь к ВолгаТех-2026</h2>
+            <p class="mb-0 text-white-75">Зарегистрируйтесь сейчас и станьте частью научного сообщества.</p>
+        </div>
+        <a href="#register" class="btn btn-light btn-lg px-4 flex-shrink-0">Зарегистрироваться</a>
+    </div>
+</section>
+
+<!-- ===================== ПОДВАЛ ===================== -->
+<footer class="footer text-white-50 pt-5 pb-4">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-5 col-lg-4">
+                <a class="d-flex align-items-center gap-2 text-white fw-bold fs-5 text-decoration-none mb-3" href="#top">
+                    <img src="images/logo.svg" alt="" width="32" height="32">ВолгаТех 2026
+                </a>
+                <p class="small">Международная научно-практическая конференция «Цифровые технологии и интеллектуальные системы».</p>
+                <div class="d-flex gap-3 fs-5">
+                    <a href="#" class="text-white-50" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+                    <a href="#" class="text-white-50" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    <a href="#" class="text-white-50" aria-label="Почта"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                <h3 class="h6 text-white">Навигация</h3>
+                <ul class="list-unstyled small">
+                    <li><a href="#about">О конференции</a></li>
+                    <li><a href="#program">Программа</a></li>
+                    <li><a href="#speakers">Спикеры</a></li>
+                    <li><a href="#news">Новости</a></li>
+                    <li><a href="#register">Регистрация</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-5">
+                <h3 class="h6 text-white">Контакты оргкомитета</h3>
+                <ul class="list-unstyled small">
+                    <li class="mb-1"><i class="bi bi-geo-alt me-2"></i>Йошкар-Ола, пл. Ленина, 3, ПГТУ</li>
+                    <li class="mb-1"><i class="bi bi-envelope me-2"></i>orgcom@example.com</li>
+                    <li><i class="bi bi-clock me-2"></i>Пн–Пт, 9:00–17:00</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="border-secondary">
+        <div class="d-md-flex justify-content-between small">
+            <span>© 2026 ВолгаТех. Учебный проект: Ананьев А. Н., ПГТУ.</span>
+            <span>Фото: Wikimedia Commons (Ifremer / O. Dugornay, CC BY 4.0; NASA &amp; ESA, CC BY 4.0; Alkort, CC BY 3.0)</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ===================== МОДАЛЬНОЕ ОКНО: УСЛОВИЯ УЧАСТИЯ ===================== -->
+<div class="modal fade" id="rulesModal" role="dialog" tabindex="-1" aria-labelledby="rulesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="rulesModalLabel"><i class="bi bi-file-earmark-text me-2 text-primary"></i>Условия участия</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-sm table-striped align-middle">
+                    <thead><tr><th>Формат</th><th>Что входит</th><th class="text-end">Стоимость</th></tr></thead>
+                    <tbody>
+                        <tr><td>Очно, с докладом</td><td>Выступление, публикация тезисов, сертификат</td><td class="text-end">бесплатно</td></tr>
+                        <tr><td>Очно, слушатель</td><td>Посещение всех секций, сертификат слушателя</td><td class="text-end">бесплатно</td></tr>
+                        <tr><td>Дистанционно</td><td>Онлайн-выступление, публикация тезисов</td><td class="text-end">бесплатно</td></tr>
+                    </tbody>
+                </table>
+                <h3 class="h6 fw-bold mt-3">Требования к тезисам</h3>
+                <ul class="small mb-3">
+                    <li>объём — 3–5 страниц формата A4, шрифт Times New Roman 14 пт, интервал 1,5;</li>
+                    <li>не более трёх соавторов, оригинальность текста — не ниже 75%;</li>
+                    <li>список литературы — не менее 5 источников, оформление по ГОСТ Р 7.0.100–2018.</li>
+                </ul>
+                <div class="alert alert-info small mb-0"><i class="bi bi-info-circle me-2"></i>Оргкомитет оставляет за собой право отклонить материалы, не соответствующие тематике секций.</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <a href="#register" class="btn btn-primary" data-bs-dismiss="modal">Перейти к регистрации</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== МОДАЛЬНОЕ ОКНО: ФОТОГАЛЕРЕЯ (CAROUSEL) ===================== -->
+<div class="modal fade" id="galleryModal" role="dialog" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-0">
+                <h2 class="modal-title fs-5" id="galleryModalLabel">Атмосфера научных конференций</h2>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div id="galleryCarousel" class="carousel slide" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" aria-label="Слайд 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/venue-pgtu.jpg" class="d-block w-100 gallery-img" alt="Главный корпус ПГТУ">
+                            <div class="carousel-caption"><h3 class="h5">Площадка конференции</h3><p>Главный корпус ПГТУ, пл. Ленина, 3</p></div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/hall-4.jpg" class="d-block w-100 gallery-img" alt="Пленарное заседание научного конгресса">
+                            <div class="carousel-caption"><h3 class="h5">Пленарное заседание</h3><p>Так выглядит большой зал во время пленарных докладов</p></div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/hall-2.jpg" class="d-block w-100 gallery-img" alt="Участники научной конференции в зале">
+                            <div class="carousel-caption"><h3 class="h5">Секционные заседания</h3><p>Обсуждение докладов и вопросы из зала</p></div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/hall-1.jpg" class="d-block w-100 gallery-img" alt="Большой выставочный зал конгресса">
+                            <div class="carousel-caption"><h3 class="h5">Нетворкинг</h3><p>Знакомства с коллегами из вузов и компаний</p></div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Назад</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Вперёд</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer border-0 small text-white-50 justify-content-start">
+                Фото: Wikimedia Commons — Ifremer / Olivier Dugornay (CC BY 4.0), NASA &amp; ESA (CC BY 4.0), Alkort (CC BY 3.0).
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
