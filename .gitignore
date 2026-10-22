@@ -1,8 +1,18 @@
 # Методичка и архивы для сдачи — не в репозиторий
 *.pdf
+!lab8/files/*.pdf
 архивы/
 
 # Служебное
 Thumbs.db
 desktop.ini
 ~$*
+
+# Зависимости, окружения и секреты
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.env
+dist/
+*.log
