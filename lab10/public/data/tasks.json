@@ -1,0 +1,22 @@
+{
+    "users": [
+        { "id": "u1", "name": "Александр А.", "fullName": "Ананьев Александр", "color": "#2563eb" },
+        { "id": "u2", "name": "Анна С.", "fullName": "Анна Смирнова", "color": "#db2777" },
+        { "id": "u3", "name": "Мария К.", "fullName": "Мария Козлова", "color": "#9333ea" },
+        { "id": "u4", "name": "Дмитрий Л.", "fullName": "Дмитрий Лебедев", "color": "#0d9488" }
+    ],
+    "tasks": [
+        { "id": 1, "title": "Подготовить презентацию", "description": "Тема: React компоненты", "tags": ["Учеба"], "priority": "high", "dayOffset": 0, "time": "14:00", "assignee": "u1", "status": "progress" },
+        { "id": 2, "title": "Изучить React компоненты", "description": "Практическая работа №10", "tags": ["Учеба"], "priority": "medium", "dayOffset": 0, "time": "12:00", "assignee": "u1", "status": "done" },
+        { "id": 3, "title": "Практическая работа №10", "description": "Создать собственный компонент", "tags": ["Проект"], "priority": "medium", "dayOffset": 1, "time": "10:00", "assignee": "u2", "status": "progress" },
+        { "id": 4, "title": "Прочитать документацию", "description": "React Hooks и useState", "tags": ["Личное"], "priority": "low", "dayOffset": 3, "time": "18:00", "assignee": "u1", "status": "todo" },
+        { "id": 5, "title": "Подготовиться к экзамену", "description": "Повторить основные темы", "tags": ["Учеба"], "priority": "high", "dayOffset": -2, "time": "16:00", "assignee": "u3", "status": "todo" },
+        { "id": 6, "title": "Сдать отчёт по работе №9", "description": "DOM и обработка событий", "tags": ["Учеба", "Разработка"], "priority": "medium", "dayOffset": -1, "time": "18:00", "assignee": "u1", "status": "progress" },
+        { "id": 7, "title": "Разработать компонент Calendar", "description": "Выбор даты и отметки задач", "tags": ["Разработка"], "priority": "high", "dayOffset": 2, "time": "11:00", "assignee": "u4", "status": "progress" },
+        { "id": 8, "title": "Настроить Vite-проект", "description": "Структура каталогов и зависимости", "tags": ["Разработка"], "priority": "low", "dayOffset": -3, "time": "09:00", "assignee": "u4", "status": "done" },
+        { "id": 9, "title": "Сверстать боковое меню", "description": "Sidebar с активным пунктом", "tags": ["Проект"], "priority": "medium", "dayOffset": -2, "time": "15:00", "assignee": "u2", "status": "done" },
+        { "id": 10, "title": "Написать тесты компонентов", "description": "Vitest и Testing Library", "tags": ["Разработка"], "priority": "medium", "dayOffset": 0, "time": "09:30", "assignee": "u1", "status": "done" },
+        { "id": 11, "title": "Повторить хук useEffect", "description": "Зависимости и функция очистки", "tags": ["Учеба"], "priority": "low", "dayOffset": -4, "time": "19:00", "assignee": "u3", "status": "done" },
+        { "id": 12, "title": "Купить продукты на неделю", "description": "Список в заметках", "tags": ["Личное"], "priority": "low", "dayOffset": -1, "time": "20:00", "assignee": "u1", "status": "done" }
+    ]
+}
