@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Интерактивный список покупок на JavaScript и DOM">
+    <meta name="author" content="Ананьев Александр Николаевич">
+    <title>Список покупок</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="app__header">
+            <div class="app__brand">
+                <svg class="app__logo" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 4h2.2l2.1 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 1.9-1.4L21 8H6.3" fill="none"
+                          stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="10" cy="19.5" r="1.4" fill="currentColor"/>
+                    <circle cx="17" cy="19.5" r="1.4" fill="currentColor"/>
+                </svg>
+                <div>
+                    <h1 class="app__title">Список покупок</h1>
+                    <p class="app__subtitle">Практическая работа №9 · Ананьев А. Н., ПГТУ</p>
+                </div>
+            </div>
+
+            <div class="progress" id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+                 aria-label="Доля купленных товаров">
+                <div class="progress__bar" id="progress-bar"></div>
+            </div>
+            <p class="progress__label" id="progress-label">Список пока пуст</p>
+        </header>
+
+        <section class="card" aria-labelledby="form-title">
+            <h2 class="card__title" id="form-title">Добавить товар</h2>
+            <form class="add-form" id="add-form" novalidate>
+                <div class="field field--name">
+                    <label class="field__label" for="item-name">Название</label>
+                    <input class="field__input" id="item-name" name="name" type="text" maxlength="40"
+                           placeholder="Например, молоко" autocomplete="off">
+                </div>
+                <div class="field field--category">
+                    <label class="field__label" for="item-category">Категория</label>
+                    <select class="field__input" id="item-category" name="category"></select>
+                </div>
+                <div class="field field--qty">
+                    <label class="field__label" for="item-qty">Кол-во</label>
+                    <input class="field__input" id="item-qty" name="qty" type="number" min="1" max="99" value="1">
+                </div>
+                <button class="btn btn--primary add-form__submit" type="submit" id="add-btn">Добавить</button>
+            </form>
+
+            <p class="form-message" id="form-message" role="alert" hidden></p>
+
+            <div class="warning" id="duplicate-warning" hidden>
+                <p class="warning__text">Товар «<span id="duplicate-name"></span>» уже есть в списке. Добавить его ещё раз?</p>
+                <div class="warning__actions">
+                    <button class="btn btn--warning" type="button" id="dup-confirm">Всё равно добавить</button>
+                    <button class="btn btn--ghost" type="button" id="dup-cancel">Отмена</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats" aria-label="Статистика списка">
+            <div class="stat">
+                <span class="stat__value" id="stat-total">0</span>
+                <span class="stat__label">Всего</span>
+            </div>
+            <div class="stat stat--bought">
+                <span class="stat__value" id="stat-bought">0</span>
+                <span class="stat__label">Куплено</span>
+            </div>
+            <div class="stat stat--left">
+                <span class="stat__value" id="stat-left">0</span>
+                <span class="stat__label">Осталось</span>
+            </div>
+        </section>
+
+        <section class="card" aria-labelledby="list-title">
+            <h2 class="card__title" id="list-title">Мои покупки</h2>
+
+            <div class="toolbar">
+                <div class="filters" id="filters" role="group" aria-label="Фильтр по статусу">
+                    <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
+                        Все <span class="filter__count" data-count="all">0</span>
+                    </button>
+                    <button class="filter" type="button" data-filter="active" aria-pressed="false">
+                        Купить <span class="filter__count" data-count="active">0</span>
+                    </button>
+                    <button class="filter" type="button" data-filter="bought" aria-pressed="false">
+                        Куплено <span class="filter__count" data-count="bought">0</span>
+                    </button>
+                </div>
+                <div class="toolbar__selects">
+                    <label class="visually-hidden" for="category-filter">Фильтр по категории</label>
+                    <select class="field__input field__input--small" id="category-filter"></select>
+                    <label class="visually-hidden" for="sort-select">Сортировка</label>
+                    <select class="field__input field__input--small" id="sort-select">
+                        <option value="added">По порядку добавления</option>
+                        <option value="name">По названию (А–Я)</option>
+                        <option value="category">По категории</option>
+                        <option value="active-first">Сначала некупленные</option>
+                    </select>
+                </div>
+            </div>
+
+            <ul class="list" id="list" aria-live="polite"></ul>
+            <p class="empty" id="empty-message" hidden></p>
+
+            <div class="list-actions">
+                <button class="btn btn--ghost" type="button" id="clear-bought" disabled>Удалить купленные</button>
+                <button class="btn btn--danger-ghost" type="button" id="clear-all" disabled>Очистить список</button>
+            </div>
+        </section>
+
+        <footer class="app__footer">ПГТУ · Технологии создания web-приложений · 2026</footer>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
