@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Наш Город — городской новостной портал Йошкар-Олы: новости, аналитика, спорт, культура и общество.">
+    <meta name="author" content="Ананьев Александр Николаевич">
+    <title>Наш Город — новости Йошкар-Олы</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#content">Перейти к основному содержимому</a>
+
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <h1 class="brand-heading">
+                <a class="brand" href="index.html">
+                    <img class="brand__logo" src="images/logo.svg" alt="Логотип портала" width="88" height="88">
+                    <span class="brand__text">
+                        <span class="brand__name">Наш Город</span>
+                        <span class="brand__slogan">Новости. Люди. События.</span>
+                    </span>
+                </a>
+            </h1>
+
+            <ul class="header-info">
+                <li class="header-info__item header-info__item--date">
+                    <time datetime="2026-10-22">Четверг, 22 октября 2026</time>
+                </li>
+                <li class="header-info__item header-info__item--place">Йошкар-Ола</li>
+            </ul>
+
+            <form class="search" action="#" method="get" role="search">
+                <label class="visually-hidden" for="search-query">Поиск по новостям</label>
+                <input class="search__input" type="search" id="search-query" name="q" placeholder="Поиск по новостям...">
+                <button class="search__button" type="submit" aria-label="Найти">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                        <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                        <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <nav class="main-nav" aria-label="Основное меню">
+            <ul class="container main-nav__list">
+                <li><a href="index.html" aria-current="page">Главная</a></li>
+                <li><a href="#latest">Новости</a></li>
+                <li><a href="#latest">Аналитика</a></li>
+                <li><a href="#latest">Спорт</a></li>
+                <li><a href="#latest">Культура</a></li>
+                <li><a href="#latest">Общество</a></li>
+                <li><a href="#about">О проекте</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content" class="container layout">
+        <div class="layout__content">
+            <section class="panel lead" aria-labelledby="lead-title">
+                <h2 class="visually-hidden" id="lead-title">Главная новость</h2>
+                <article class="lead-news">
+                    <figure class="lead-news__media">
+                        <img src="images/park.svg" alt="Иллюстрация: аллеи, деревья и велодорожка нового парка" width="640" height="400">
+                    </figure>
+                    <div class="lead-news__body">
+                        <p class="tag tag--accent">Главная новость</p>
+                        <h3 class="lead-news__title">Новый парк откроется в этом году</h3>
+                        <p class="lead-news__text">
+                            В городе продолжается масштабное благоустройство. До конца года в заречной части
+                            планируется открыть новый парк с зонами отдыха, велодорожками и детскими площадками.
+                            Сейчас подрядчик завершает укладку дорожек и высадку деревьев.
+                        </p>
+                        <footer class="meta">
+                            <time class="meta__date" datetime="2026-10-21">21 октября 2026</time>
+                            <span class="meta__comments"><span class="visually-hidden">Комментариев: </span>12</span>
+                            <a class="button" href="#latest">Читать далее</a>
+                        </footer>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel latest" id="latest" aria-labelledby="latest-title">
+                <header class="panel__header">
+                    <h2 class="panel__title" id="latest-title">Последние новости</h2>
+                    <a class="more-link" href="#latest">Все новости</a>
+                </header>
+
+                <div class="news-grid">
+                    <article class="card">
+                        <img class="card__image" src="images/school.svg" alt="Иллюстрация: здание новой школы" width="640" height="400">
+                        <div class="card__body">
+                            <p class="tag">Общество</p>
+                            <h3 class="card__title"><a href="#latest">В городе открыли новую школу</a></h3>
+                            <footer class="meta">
+                                <time class="meta__date" datetime="2026-10-20">20 октября 2026</time>
+                                <span class="meta__comments"><span class="visually-hidden">Комментариев: </span>5</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image" src="images/festival.svg" alt="Иллюстрация: музыканты на сцене фестиваля" width="640" height="400">
+                        <div class="card__body">
+                            <p class="tag">Культура</p>
+                            <h3 class="card__title"><a href="#latest">Стартует фестиваль искусств</a></h3>
+                            <footer class="meta">
+                                <time class="meta__date" datetime="2026-10-19">19 октября 2026</time>
+                                <span class="meta__comments"><span class="visually-hidden">Комментариев: </span>8</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image" src="images/sport.svg" alt="Иллюстрация: кубок на футбольном поле" width="640" height="400">
+                        <div class="card__body">
+                            <p class="tag">Спорт</p>
+                            <h3 class="card__title"><a href="#latest">Городская команда одержала победу</a></h3>
+                            <footer class="meta">
+                                <time class="meta__date" datetime="2026-10-18">18 октября 2026</time>
+                                <span class="meta__comments"><span class="visually-hidden">Комментариев: </span>3</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image" src="images/economy.svg" alt="Иллюстрация: растущая столбчатая диаграмма" width="640" height="400">
+                        <div class="card__body">
+                            <p class="tag">Экономика</p>
+                            <h3 class="card__title"><a href="#latest">В регионе растёт число рабочих мест</a></h3>
+                            <footer class="meta">
+                                <time class="meta__date" datetime="2026-10-17">17 октября 2026</time>
+                                <span class="meta__comments"><span class="visually-hidden">Комментариев: </span>6</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image" src="images/tech.svg" alt="Иллюстрация: микросхема и линии связи" width="640" height="400">
+                        <div class="card__body">
+                            <p class="tag">Технологии</p>
+                            <h3 class="card__title"><a href="#latest">Внедряются умные решения</a></h3>
+                            <footer class="meta">
+                                <time class="meta__date" datetime="2026-10-16">16 октября 2026</time>
+                                <span class="meta__comments"><span class="visually-hidden">Комментариев: </span>4</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image" src="images/clinic.svg" alt="Иллюстрация: здание поликлиники с красным крестом" width="640" height="400">
+                        <div class="card__body">
+                            <p class="tag">Здоровье</p>
+                            <h3 class="card__title"><a href="#latest">Новая поликлиника начала приём пациентов</a></h3>
+                            <footer class="meta">
+                                <time class="meta__date" datetime="2026-10-15">15 октября 2026</time>
+                                <span class="meta__comments"><span class="visually-hidden">Комментариев: </span>7</span>
+                            </footer>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <aside class="layout__sidebar" aria-label="Дополнительная информация">
+            <section class="panel popular" aria-labelledby="popular-title">
+                <h2 class="panel__title" id="popular-title">Популярное</h2>
+                <ol class="popular__list">
+                    <li class="popular__item">
+                        <img src="images/thumb-embankment.svg" alt="" width="64" height="64">
+                        <div>
+                            <a class="popular__link" href="#latest">Развитие городской среды</a>
+                            <time datetime="2026-10-20">20 октября 2026</time>
+                        </div>
+                    </li>
+                    <li class="popular__item">
+                        <img src="images/thumb-bus.svg" alt="" width="64" height="64">
+                        <div>
+                            <a class="popular__link" href="#latest">Как изменится транспорт</a>
+                            <time datetime="2026-10-19">19 октября 2026</time>
+                        </div>
+                    </li>
+                    <li class="popular__item">
+                        <img src="images/thumb-interview.svg" alt="" width="64" height="64">
+                        <div>
+                            <a class="popular__link" href="#latest">Интервью с главным архитектором</a>
+                            <time datetime="2026-10-18">18 октября 2026</time>
+                        </div>
+                    </li>
+                    <li class="popular__item">
+                        <img src="images/thumb-future.svg" alt="" width="64" height="64">
+                        <div>
+                            <a class="popular__link" href="#latest">Город будущего</a>
+                            <time datetime="2026-10-17">17 октября 2026</time>
+                        </div>
+                    </li>
+                    <li class="popular__item">
+                        <img src="images/thumb-rules.svg" alt="" width="64" height="64">
+                        <div>
+                            <a class="popular__link" href="#latest">Правила благоустройства</a>
+                            <time datetime="2026-10-16">16 октября 2026</time>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="panel subscribe" aria-labelledby="subscribe-title">
+                <h2 class="panel__title subscribe__title" id="subscribe-title">Подписка на новости</h2>
+                <p class="subscribe__text">Будьте в курсе самых важных событий города</p>
+                <form class="subscribe__form" action="#" method="post">
+                    <label class="visually-hidden" for="subscribe-email">Ваш e-mail</label>
+                    <input class="subscribe__input" type="email" id="subscribe-email" name="email" placeholder="Ваш e-mail" required>
+                    <button class="button button--block" type="submit">Подписаться</button>
+                </form>
+            </section>
+
+            <section class="panel weather" aria-labelledby="weather-title">
+                <h2 class="panel__title" id="weather-title">Погода в городе</h2>
+                <div class="weather__now">
+                    <img src="images/weather.svg" alt="" width="80" height="76">
+                    <p class="weather__temp"><data value="4">+4°</data></p>
+                    <p class="weather__desc">Переменная облачность</p>
+                </div>
+                <dl class="weather__details">
+                    <div class="weather__param weather__param--humidity">
+                        <dt>Влажность</dt>
+                        <dd>78%</dd>
+                    </div>
+                    <div class="weather__param weather__param--wind">
+                        <dt>Ветер</dt>
+                        <dd>4 м/с</dd>
+                    </div>
+                    <div class="weather__param weather__param--pressure">
+                        <dt>Давление</dt>
+                        <dd>752 мм</dd>
+                    </div>
+                </dl>
+            </section>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <div class="site-footer__about" id="about">
+                <p class="site-footer__brand">
+                    <img src="images/logo.svg" alt="" width="56" height="56">
+                    <span>Наш Город<small>Новости. Люди. События.</small></span>
+                </p>
+                <p class="site-footer__text">Мы рассказываем о важном. Для тех, кто любит свой город.</p>
+                <ul class="social">
+                    <li><a href="#contacts" aria-label="ВКонтакте">VK</a></li>
+                    <li><a href="#contacts" aria-label="Telegram">TG</a></li>
+                    <li><a href="#contacts" aria-label="YouTube">YT</a></li>
+                    <li><a href="#contacts" aria-label="Дзен">Дз</a></li>
+                </ul>
+            </div>
+
+            <nav class="site-footer__col" aria-labelledby="footer-sections">
+                <h2 class="site-footer__title" id="footer-sections">Разделы</h2>
+                <ul>
+                    <li><a href="#latest">Новости</a></li>
+                    <li><a href="#latest">Аналитика</a></li>
+                    <li><a href="#latest">Спорт</a></li>
+                    <li><a href="#latest">Культура</a></li>
+                    <li><a href="#latest">Общество</a></li>
+                    <li><a href="#latest">Экономика</a></li>
+                </ul>
+            </nav>
+
+            <nav class="site-footer__col" aria-labelledby="footer-project">
+                <h2 class="site-footer__title" id="footer-project">О проекте</h2>
+                <ul>
+                    <li><a href="#about">Наша команда</a></li>
+                    <li><a href="#about">Редакционная политика</a></li>
+                    <li><a href="#about">Реклама</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <section class="site-footer__col" id="contacts" aria-labelledby="footer-contacts">
+                <h2 class="site-footer__title" id="footer-contacts">Контакты</h2>
+                <address class="contacts">
+                    <p class="contacts__item contacts__item--address">Йошкар-Ола, ул. Примерная, д. 1</p>
+                    <p class="contacts__item contacts__item--phone"><a href="tel:+78362000000">+7 (8362) 00-00-00</a></p>
+                    <p class="contacts__item contacts__item--mail"><a href="mailto:info@nashgorod.example">info@nashgorod.example</a></p>
+                    <p class="contacts__item contacts__item--time"><span>Пн–Пт: <time datetime="09:00">9:00</time>–<time datetime="18:00">18:00</time></span></p>
+                </address>
+            </section>
+        </div>
+
+        <div class="site-footer__bottom">
+            <div class="container site-footer__bottom-inner">
+                <p>&copy; <time datetime="2026">2026</time> Наш Город. Все права защищены.</p>
+                <ul class="legal">
+                    <li><a href="#content">Карта сайта</a></li>
+                    <li><a href="#contacts">Политика конфиденциальности</a></li>
+                    <li><a href="#contacts">Пользовательское соглашение</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

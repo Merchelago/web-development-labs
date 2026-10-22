@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 76" role="img" aria-label="Переменная облачность">
+<title>Переменная облачность</title>
+<defs></defs>
+<g fill="#F6B348"><circle cx="40" cy="30" r="14"/></g><g stroke="#F6B348" stroke-width="4" stroke-linecap="round"><line x1="40" y1="6" x2="40" y2="0"/><line x1="18" y1="14" x2="13" y2="9"/><line x1="62" y1="14" x2="67" y2="9"/><line x1="14" y1="32" x2="7" y2="32"/></g><path d="M20 70 a16 16 0 0 1 4 -31 a22 22 0 0 1 40 -4 a17 17 0 0 1 8 35Z" fill="#E8F0FA" stroke="#1E2430" stroke-width="3" stroke-linejoin="round"/>
+</svg>
