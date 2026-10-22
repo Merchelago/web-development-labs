@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Мобильный список покупок — PWA, работает без интернета">
+    <meta name="theme-color" content="#187a4f">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Покупки">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Мой список покупок</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/app.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <img src="icons/icon-96.png" alt="" width="40" height="40">
+            <div>
+                <h1>Мой список покупок</h1>
+                <p class="subtitle" id="summaryText">Загрузка…</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <span class="net-badge" id="netBadge" role="status">Онлайн</span>
+            <button type="button" class="btn btn-install" id="installBtn" title="Установить приложение" hidden>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="btn-label">Установить</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="banner banner-offline" id="offlineBanner" hidden>
+        Нет подключения к интернету. Список продолжает работать и сохраняется на устройстве.
+    </div>
+    <div class="banner banner-ios" id="iosHint" hidden>
+        Чтобы установить приложение на iPhone: нажмите «Поделиться» и выберите «На экран „Домой“».
+    </div>
+
+    <main class="layout">
+        <aside class="panel">
+            <section class="card add-card" aria-labelledby="addTitle">
+                <h2 id="addTitle">Новый товар</h2>
+                <form id="addForm" novalidate>
+                    <div class="add-row">
+                        <label for="itemName" class="visually-hidden">Название товара</label>
+                        <input id="itemName" name="name" type="text" maxlength="60" autocomplete="off"
+                               placeholder="Что купить? Например, молоко" enterkeyhint="done" required>
+                        <button type="submit" class="btn btn-primary btn-round" aria-label="Добавить товар">
+                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                    <div class="details-row">
+                        <label class="field">
+                            <span>Кол-во</span>
+                            <input id="itemQty" name="qty" type="number" min="1" max="999" step="1" value="1" inputmode="numeric">
+                        </label>
+                        <label class="field">
+                            <span>Ед.</span>
+                            <select id="itemUnit" name="unit"></select>
+                        </label>
+                        <label class="field field-wide">
+                            <span>Категория</span>
+                            <select id="itemCategory" name="category"></select>
+                        </label>
+                    </div>
+                    <p class="error" id="addError" role="alert" hidden></p>
+                </form>
+            </section>
+
+            <section class="card stats-card" aria-label="Прогресс покупок">
+                <div class="stats">
+                    <div class="stat stat-left"><b id="leftCount">0</b><span>осталось</span></div>
+                    <div class="stat"><b id="boughtCount">0</b><span>куплено</span></div>
+                    <div class="stat"><b id="totalCount">0</b><span>всего</span></div>
+                </div>
+                <div class="progress" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+            </section>
+        </aside>
+
+        <section class="list-area" aria-label="Список покупок">
+            <div class="toolbar">
+                <div class="chips" role="group" aria-label="Фильтр по состоянию">
+                    <button type="button" class="chip" data-filter="all">Все <span class="chip-count" data-count="all">0</span></button>
+                    <button type="button" class="chip" data-filter="active">Купить <span class="chip-count" data-count="active">0</span></button>
+                    <button type="button" class="chip" data-filter="bought">Куплено <span class="chip-count" data-count="bought">0</span></button>
+                </div>
+                <div class="search-row">
+                    <label for="search" class="visually-hidden">Поиск</label>
+                    <input id="search" type="search" placeholder="Поиск по списку" autocomplete="off">
+                    <label for="categoryFilter" class="visually-hidden">Категория</label>
+                    <select id="categoryFilter"></select>
+                </div>
+            </div>
+
+            <ul class="items" id="itemsList"></ul>
+
+            <div class="empty" id="emptyState" hidden>
+                <img src="icons/icon-128.png" alt="" width="72" height="72">
+                <p id="emptyText">Список пуст — добавьте первый товар.</p>
+            </div>
+
+            <div class="list-actions">
+                <button type="button" class="btn btn-ghost" id="clearBought" disabled>Удалить купленные</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <span id="swInfo">Service Worker: проверка…</span>
+        <span id="storageInfo"></span>
+        <span id="modeInfo"></span>
+    </footer>
+
+    <dialog id="editDialog" aria-labelledby="editTitle">
+        <form method="dialog" id="editForm" novalidate>
+            <h2 id="editTitle">Редактирование товара</h2>
+            <label class="field">
+                <span>Название</span>
+                <input id="editName" type="text" maxlength="60" required>
+            </label>
+            <div class="details-row">
+                <label class="field">
+                    <span>Кол-во</span>
+                    <input id="editQty" type="number" min="1" max="999" step="1" inputmode="numeric">
+                </label>
+                <label class="field">
+                    <span>Ед.</span>
+                    <select id="editUnit"></select>
+                </label>
+                <label class="field field-wide">
+                    <span>Категория</span>
+                    <select id="editCategory"></select>
+                </label>
+            </div>
+            <p class="error" id="editError" role="alert" hidden></p>
+            <div class="dialog-actions">
+                <button type="button" class="btn btn-ghost" id="editCancel">Отмена</button>
+                <button type="submit" class="btn btn-primary" id="editSave" value="save">Сохранить</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" hidden>
+        <span id="toastText"></span>
+        <button type="button" class="toast-action" id="toastAction"></button>
+    </div>
+</body>
+</html>
